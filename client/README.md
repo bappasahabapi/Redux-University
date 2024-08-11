@@ -1,0 +1,38 @@
+# React + TypeScript + Vite +Redux+RTK
+
+[client](http://localhost:5173/)
+npm install
+npm run dev 
+
+[server](http://localhost:5173/)
+npm install
+npm run dev 
+
+###    install packages:
+react-hook-form 
+### Steps:
+
+- Make Base Api
+- make the auth
+
+![https://jwt.io/](./Untitled.png)
+
+
+### Steps:
+
+- **Part-1-BasicUI:**
+    - Role based routing
+
+- **Part-2-Authentication:**
+    - Make Base Api
+    - make the auth
+    - Basic login form using react-hook-form
+    - set cookies in the browser 
+    - Decode token and set user in local state
+    - integrate redux persistence
+    - implement private route
+
+- **Part-2-Authentication-Token:**
+    - 1.install `sonner toast.`
+    - 2.Login and `redirect` to role based route 
+    - 3.Setting up base Query and send AccessToken with each request 
