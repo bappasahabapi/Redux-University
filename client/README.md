@@ -20,8 +20,13 @@ react-hook-form
 
 ### Steps:
 
-- **Part-1-BasicUI:**
-    - Role based routing
+- **Part-2A-Authentication-Token:**
+    - 1.install `sonner toast.`
+    - 2.Login and `redirect` to role based route 
+    - 3.Setting up base Query and send AccessToken with each request 
+    - 4.[Verify jwt and set up custom Base Query](https://redux-toolkit.js.org/rtk-query/usage/customizing-queries)
+    - 5. Retrived new AccessToken (not working)
+    - 6. Handle expired RefreshToken (not working)
 
 - **Part-2-Authentication:**
     - Make Base Api
@@ -32,7 +37,5 @@ react-hook-form
     - integrate redux persistence
     - implement private route
 
-- **Part-2-Authentication-Token:**
-    - 1.install `sonner toast.`
-    - 2.Login and `redirect` to role based route 
-    - 3.Setting up base Query and send AccessToken with each request 
+- **Part-1-BasicUI:**
+    - Role based routing

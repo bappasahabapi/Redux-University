@@ -11,7 +11,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
 
-    // checking if the token is missing
+    //todo: checking if the token is missing
     if (!token) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
     }
@@ -23,10 +23,10 @@ const auth = (...requiredRoles: TUserRole[]) => {
     // ) as JwtPayload;
 
 
-    //handle 401 error if the AccessToken is expired
+    //todo:handle 401 error if the AccessToken is expired [not woeking]
     let decoded;
     try {
-      const decoded = jwt.verify(
+       decoded = jwt.verify(
         token,
         config.jwt_access_secret as string,
       ) as JwtPayload;
