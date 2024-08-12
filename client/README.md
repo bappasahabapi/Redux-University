@@ -21,6 +21,11 @@ react-hook-form
 ### Steps:
 
 - **Part-2A-Authentication-Token:**
+    - 7.Make Form Wrapper [Form Provider Props](https://react-hook-form.com/docs/formprovider)
+    - 8.Share Form Context using Form Provider
+    - 9.Binding input with controller in login part
+    - 10.Handle Form default value
+
     - 1.install `sonner toast.`
     - 2.Login and `redirect` to role based route 
     - 3.Setting up base Query and send AccessToken with each request 

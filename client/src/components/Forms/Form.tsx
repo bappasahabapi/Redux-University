@@ -1,46 +1,31 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
-
 import { ReactElement, ReactNode } from "react";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { FieldValues, FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
 
-type FormConfig={
+type TFormConfig={
     defaultValues?:Record<string,any>;
 };
 
-type FormProps={
+type TFormProps={
     children?:ReactElement |ReactNode;
-    submitHandler:SubmitHandler<any>;
-} & FormConfig;
+    onSubmit:SubmitHandler<FieldValues>;
+} & TFormConfig ;
 
 
-const Form = ({children,submitHandler,defaultValues}:FormProps) => {
 
-    const formConfig:FormConfig={};
+const Form = ({ onSubmit, children ,defaultValues}:TFormProps) => {
 
-    //check js truthy value. not working on falsy value
-    if(!!defaultValues) formConfig["defaultValues"]=defaultValues;
+    const formconfig:TFormConfig={};
 
-    const methods=useForm<FormProps>(formConfig);
-    // console.log(methods);
-
-    const {handleSubmit,reset}=methods;
-
-    const onSubmit = (data:any) => {
-        console.log(data);
-        submitHandler(data);
-        reset();
-    };
-
-    return (
-        <FormProvider {...methods}>
-          
-          <form onSubmit={handleSubmit(onSubmit)}>
-           {children}
-          </form>
-        </FormProvider>
-      )
+    if(defaultValues){
+        formconfig['defaultValues'] = defaultValues
+    }
+  const methods = useForm(formconfig);
+  return (
+    <FormProvider {...methods}> 
+      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+    </FormProvider>
+  );
 };
 
 export default Form;
