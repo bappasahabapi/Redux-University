@@ -69,17 +69,16 @@ const Login = () => {
           minHeight: "100vh",
         }}
       >
-        {/* <Col sm={12} md={18} lg={8}>
+        <Col sm={12} md={18} lg={8}>
           <p>Login Image</p>
-        </Col> */}
+        </Col>
 
         <Col sm={12} md={8} lg={8}>
-          <h1 style={{ margin: "18px 0px" }}>First login your account</h1>
+          <h1 style={{ margin: "18px " }}>First login your account</h1>
           <div>
             <UMForm onSubmit={onSubmitLogin} defaultValues={defaultValues}>
               <FormInput type="text" name="userId" label="ID: " />
               <FormInput type="text" name="password" label="Password: " />
-
               <Button htmlType="submit" type="primary">
                 Login
               </Button>

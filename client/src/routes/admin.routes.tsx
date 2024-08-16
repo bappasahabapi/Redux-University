@@ -1,7 +1,8 @@
 
 
 
-import AcademicSemester from '../pages/academicManagement/AcademicSemester';
+
+import AcademicSemester from '../pages/admin/academicManagement/AcademicSemester';
 import CreateAcademicSemester from '../pages/admin/academicManagement/CreateAcademicSemester';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import CreateAdmin from '../pages/admin/CreateAdmin';

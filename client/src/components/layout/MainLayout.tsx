@@ -28,7 +28,7 @@ const MainLayout = () => {
         <Content style={{ margin: '24px 16px 0' }}>
           <div
             style={{
-              padding: 24,
+              padding: 4,
               minHeight: 360,
             }}
           >
@@ -36,7 +36,7 @@ const MainLayout = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          bappa da ©{new Date().getFullYear()} Created by Bappa Saha
         </Footer>
       </Layout>
     </Layout>

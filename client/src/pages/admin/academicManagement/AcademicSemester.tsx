@@ -1,124 +1,109 @@
-import { Button, Table, TableColumnsType, TableProps } from 'antd';
-import { useGetAllSemestersQuery } from '../../../redux/features/admin/academicManagement.api';
-import { TAcademicSemester } from '../../../types/academicManagement.type';
-import { useState } from 'react';
-import { TQueryParam } from '../../../types';
+import { Button, Table, TableColumnsType, TableProps } from "antd";
 
-export type TTableData = Pick<
-  TAcademicSemester,
-  'name' | 'year' | 'startMonth' | 'endMonth'
->;
+import { useNavigate } from "react-router-dom";
+import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicManagementApi";
+
+
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: TableColumnsType<DataType> = [
+  {
+    title: "Name",
+    dataIndex: "name",
+    showSorterTooltip: { target: "full-header" },
+    filters: [
+      {
+        text: "Summer",
+        value: "Summer",
+      },
+      {
+        text: "Autumn",
+        value: "Autumn",
+      },
+      {
+        text: "Fall",
+        value: "Fall",
+      },
+    ],
+    // specify the condition of filtering result
+    // here is that finding the name started with `value`
+    onFilter: (value, record) => record.name.indexOf(value as string) === 0,
+    // sorter: (a, b) => a.name.length - b.name.length,
+    sortDirections: ["descend"],
+  },
+  {
+    title: "Code",
+    dataIndex: "code",
+    defaultSortOrder: "descend",
+    // sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: "Year",
+    dataIndex: "year",
+  },
+  {
+    title: "Start Month",
+    dataIndex: "startMonth",
+  },
+  {
+    title: "End Month",
+    dataIndex: "endMonth",
+  },
+];
+
+const onChange: TableProps<DataType>["onChange"] = (
+  pagination,
+  filters,
+  sorter,
+  extra
+) => {
+  console.log("params", pagination, filters, sorter, extra);
+};
 
 const AcademicSemester = () => {
-  const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
-  const {
-    data: semesterData,
-    isLoading,
-    isFetching,
-  } = useGetAllSemestersQuery(params);
+  const { data: semesterData } = useGetAllSemesterQuery(undefined);
 
-  console.log({ isLoading, isFetching });
+  // console.log(semesterData);
 
   const tableData = semesterData?.data?.map(
-    ({ _id, name, startMonth, endMonth, year }) => ({
-      key: _id,
+    ({ _id, name, endMonth, startMonth, code, year }) => ({
+      _id,
       name,
-      startMonth,
       endMonth,
+      startMonth,
+      code,
       year,
     })
   );
 
-  const columns: TableColumnsType<TTableData> = [
-    {
-      title: 'Name',
-      key: 'name',
-      dataIndex: 'name',
-      filters: [
-        {
-          text: 'Autumn',
-          value: 'Autumn',
-        },
-        {
-          text: 'Fall',
-          value: 'Fall',
-        },
-        {
-          text: 'Summer',
-          value: 'Summer',
-        },
-      ],
-    },
-    {
-      title: 'Year',
-      key: 'year',
-      dataIndex: 'year',
-      filters: [
-        {
-          text: '2024',
-          value: '2024',
-        },
-        {
-          text: '2025',
-          value: '2025',
-        },
-        {
-          text: '2026',
-          value: '2026',
-        },
-      ],
-    },
-    {
-      title: 'Start Month',
-      key: 'startMonth',
-      dataIndex: 'startMonth',
-    },
-    {
-      title: 'End Month',
-      key: 'endMonth',
-      dataIndex: 'endMonth',
-    },
-    {
-      title: 'Action',
-      key: 'x',
-      render: () => {
-        return (
-          <div>
-            <Button>Update</Button>
-          </div>
-        );
-      },
-    },
-  ];
+  const navigate = useNavigate();
 
-  const onChange: TableProps<TTableData>['onChange'] = (
-    _pagination,
-    filters,
-    _sorter,
-    extra
-  ) => {
-    if (extra.action === 'filter') {
-      const queryParams: TQueryParam[] = [];
-
-      filters.name?.forEach((item) =>
-        queryParams.push({ name: 'name', value: item })
-      );
-
-      filters.year?.forEach((item) =>
-        queryParams.push({ name: 'year', value: item })
-      );
-
-      setParams(queryParams);
-    }
+  const handleClick = () => {
+    navigate("/admin/create-academic-semester"); // Updated navigation path
   };
 
   return (
-    <Table
-      loading={isFetching}
-      columns={columns}
-      dataSource={tableData}
-      onChange={onChange}
-    />
+    <div>
+      <h1 style={{textAlign:"center"}}>Academic Semester</h1> <br />
+      <Button type="primary" onClick={handleClick}>
+        Create Semester
+      </Button>{" "}
+      <br /> <br />
+      <hr />
+      {/* <UMTable/> */}
+      <Table
+        columns={columns}
+        onChange={onChange}
+        dataSource={tableData}
+        // dataSource={data}
+        showSorterTooltip={{ target: "sorter-icon" }}
+      />
+    </div>
   );
 };
 

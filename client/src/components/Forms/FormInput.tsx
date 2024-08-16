@@ -9,7 +9,7 @@ type TInputProps ={
 
 const FormInput = ({ type, name, label }:TInputProps) => {
   return (
-    <div style={{marginBottom:'12px'}}>
+    <div style={{marginBottom:'12px', width:'130%'}}>
       {/* {label ? label : null} */}
       <Controller
         name={name}

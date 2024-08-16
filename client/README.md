@@ -25,6 +25,10 @@ react-hook-form
     - 2.Refactor Form Component
     - 3.Make Reusable Select Component
     - 4.Handle Create Academic Semester Form
+    - 5. Froneted Form Validation useing zod  `npm install zod @hookform/resolvers`
+    - 6. Academic Semester RTK Query Mutation
+    - 7. Resolved Type error in `global.ts`
+    - 8. Show Academic Semester Table Data
 
 - **Part-2A-Authentication-Token:**
     - 7.Make Form Wrapper [Form Provider Props](https://react-hook-form.com/docs/formprovider)
