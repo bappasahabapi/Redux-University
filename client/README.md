@@ -32,6 +32,7 @@ react-hook-form
     - 9. Resolved Type errors of Redux Response
     - 10. Generic Type for response data
     - 11. Handle Table Filter in Redux params
+    - 12. Wrap module
 
 - **Part-2A-Authentication-Token:**
     - 7.Make Form Wrapper [Form Provider Props](https://react-hook-form.com/docs/formprovider)

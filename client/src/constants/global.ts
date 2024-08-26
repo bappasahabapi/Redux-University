@@ -17,3 +17,9 @@ export const monthOptions = monthNames.map((item) => ({
   value: item,
   label: item,
 }));
+
+export type TQueryParam ={
+  name: string;
+  value:boolean | React.Key;
+
+}
