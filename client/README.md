@@ -20,6 +20,9 @@ react-hook-form
 
 ### Steps:
 
+-- Create Faculty
+-- Create Department
+
 - **Part-4:**
     - 1.Working on User Management
     - 2.Refactor Form Component
