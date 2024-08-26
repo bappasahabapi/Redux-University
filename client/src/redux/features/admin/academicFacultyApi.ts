@@ -1,6 +1,4 @@
-// import { TQueryParam } from "../../../constants/global";
-// import { TResponseRedux } from "../../../types";
-// import { TAcademicSemester } from "../../../types/academicManagement.type";
+
 import { TResponseRedux } from "../../../types";
 import { TAcademicFaculty } from "../../../types/academicFaculty.type";
 import { baseApi } from "../../api/baseApi";

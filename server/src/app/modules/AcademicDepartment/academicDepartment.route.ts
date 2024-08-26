@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post(
   '/create-academic-department',
-  // auth(USER_ROLE.superAdmin, USER_ROLE.admin),
+  auth(USER_ROLE.superAdmin, USER_ROLE.admin),
   validateRequest(
     AcademicDepartmentValidation.createAcademicDepartmentValidationSchema,
   ),
@@ -19,17 +19,17 @@ router.post(
 router.get(
   '/:departmentId',
   auth(
-    // USER_ROLE.superAdmin,
-    // USER_ROLE.admin,
-    // USER_ROLE.faculty,
-    // USER_ROLE.student,
+    USER_ROLE.superAdmin,
+    USER_ROLE.admin,
+    USER_ROLE.faculty,
+    USER_ROLE.student,
   ),
   AcademicDepartmentControllers.getSingleAcademicDepartment,
 );
 
 router.patch(
   '/:departmentId',
-  // auth(USER_ROLE.superAdmin, USER_ROLE.admin),
+  auth(USER_ROLE.superAdmin, USER_ROLE.admin),
   validateRequest(
     AcademicDepartmentValidation.updateAcademicDepartmentValidationSchema,
   ),
@@ -39,10 +39,10 @@ router.patch(
 router.get(
   '/',
   auth(
-    // USER_ROLE.superAdmin,
-    // USER_ROLE.admin,
-    // USER_ROLE.faculty,
-    // USER_ROLE.student,
+    USER_ROLE.superAdmin,
+    USER_ROLE.admin,
+    USER_ROLE.faculty,
+    USER_ROLE.student,
   ),
   AcademicDepartmentControllers.getAllAcademicDepartments,
 );
