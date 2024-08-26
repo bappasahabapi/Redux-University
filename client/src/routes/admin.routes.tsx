@@ -2,7 +2,9 @@
 
 
 
+import AcademicFaculty from '../pages/admin/academicManagement/AcademicFaculty';
 import AcademicSemester from '../pages/admin/academicManagement/AcademicSemester';
+import CreateAcademicFaculty from '../pages/admin/academicManagement/CreateAcademicFaculty';
 import CreateAcademicSemester from '../pages/admin/academicManagement/CreateAcademicSemester';
 import AdminDashboard from '../pages/admin/AdminDashboard';
 import CreateAdmin from '../pages/admin/CreateAdmin';
@@ -31,12 +33,12 @@ import CreateStudent from '../pages/admin/CreateStudent';
       {
         name: 'Create A. Faculty',
         path: 'create-academic-faculty',
-        // element: <CreateAcademicFaculty />,
+        element: <CreateAcademicFaculty />,
       },
       {
         name: 'Academic Faculty',
         path: 'academic-faculty',
-        // element: <AcademicFaculty />,
+        element: <AcademicFaculty />,
       },
       {
         name: 'Create A. Department',

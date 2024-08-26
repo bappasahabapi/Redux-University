@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post(
   '/create-academic-faculty',
-  // auth(USER_ROLE.superAdmin, USER_ROLE.admin),
+  auth(USER_ROLE.superAdmin, USER_ROLE.admin),
   validateRequest(
     AcademicFacultyValidation.createAcademicFacultyValidationSchema,
   ),
@@ -18,18 +18,18 @@ router.post(
 
 router.get(
   '/:id',
-  // auth(
-  //   USER_ROLE.superAdmin,
-  //   USER_ROLE.admin,
-  //   USER_ROLE.faculty,
-  //   USER_ROLE.student,
-  // ),
+  auth(
+    USER_ROLE.superAdmin,
+    USER_ROLE.admin,
+    USER_ROLE.faculty,
+    USER_ROLE.student,
+  ),
   AcademicFacultyControllers.getSingleAcademicFaculty,
 );
 
 router.patch(
   '/:id',
-  // auth(USER_ROLE.superAdmin, USER_ROLE.admin),
+  auth(USER_ROLE.superAdmin, USER_ROLE.admin),
   validateRequest(
     AcademicFacultyValidation.updateAcademicFacultyValidationSchema,
   ),
@@ -39,10 +39,10 @@ router.patch(
 router.get(
   '/',
   auth(
-    // USER_ROLE.superAdmin,
-    // USER_ROLE.admin,
-    // USER_ROLE.faculty,
-    // USER_ROLE.student,
+    USER_ROLE.superAdmin,
+    USER_ROLE.admin,
+    USER_ROLE.faculty,
+    USER_ROLE.student,
   ),
   AcademicFacultyControllers.getAllAcademicFaculties,
 );

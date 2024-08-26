@@ -9,7 +9,8 @@ import { academicSemesterSchema } from "../../../schemas/academicSemesterSchema"
 import { useAddAcademicSemesterMutation } from "../../../redux/features/admin/academicManagementApi";
 import { toast } from "sonner";
 import { TResponse } from "../../../types/global.type";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { TAcademicSemester } from "../../../types/academicManagement.type";
 
 const currentYear = new Date().getFullYear();
 const yearOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => ({
@@ -20,6 +21,7 @@ const yearOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => ({
 // console.log(yearOptions)
 
 const CreateAcademicSemester = () => {
+  const navigate =useNavigate()
   const [addAcademicSemester] = useAddAcademicSemesterMutation();
 
   const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
@@ -28,7 +30,7 @@ const CreateAcademicSemester = () => {
       duration: 1500,
     });
     const name = semesterOptions[Number(data?.name) - 1]?.label;
-    // console.log(name)
+    console.log(name)
 
     const semesterData = {
       name: name,
@@ -40,7 +42,7 @@ const CreateAcademicSemester = () => {
     console.log(semesterData);
 
     try {
-      const res = (await addAcademicSemester(semesterData)) as TResponse;
+      const res = (await addAcademicSemester(semesterData)) as TResponse<TAcademicSemester>;
       console.log(res);
       if (res.error) {
         toast.error(res.error.data.message);
@@ -50,6 +52,8 @@ const CreateAcademicSemester = () => {
           richColors: true,
           position: "top-center",
         });
+        navigate("/admin/academic-semester")
+        
       }
     } catch (err) {
       toast.error("Something went wrong", {
