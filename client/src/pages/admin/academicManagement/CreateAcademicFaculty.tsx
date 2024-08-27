@@ -27,7 +27,6 @@ const CreateAcademicFaculty = () => {
     }
 
     try{
- 
 
       const res =(await addAcademicFaculty(facultyData) ) as TResponse<TAcademicFaculty >;
       console.log(res)

@@ -17,12 +17,22 @@ const academicDepartmentApi =baseApi.injectEndpoints({
               meta: response.meta,
             };
           },
-    })
+    }),
 
+    addAcademicDepartment:builder.mutation({
+        query:(data)=>(
+            console.log(data),{
+                url:`/academic-departments/create-academic-department`,
+                method: 'POST',
+                body: data
+            }
+        )
+    })
 
     })
 });
 
 export const {
-    useGetAllDepartmentQuery
+    useGetAllDepartmentQuery,
+    useAddAcademicDepartmentMutation
 }=academicDepartmentApi;
