@@ -1,3 +1,8 @@
+export type TQueryParam ={
+  name: string;
+  value:boolean | React.Key;
+
+}
 export const monthNames = [
   'January',
   'February',
@@ -18,8 +23,19 @@ export const monthOptions = monthNames.map((item) => ({
   label: item,
 }));
 
-export type TQueryParam ={
-  name: string;
-  value:boolean | React.Key;
 
-}
+export const genders = ['Male', 'Female', 'Other'];
+export const genderOptions = genders.map((gender) => ({
+  value: gender.toLowerCase(),
+  label: gender,
+}));
+
+export const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
+
+export const bloodGroupOptions = bloodGroups.map((groupName) => ({
+  value: groupName,
+  label: groupName,
+}));
+
+
+

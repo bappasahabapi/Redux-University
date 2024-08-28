@@ -7,7 +7,7 @@ import { decodeToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import UMForm from "../components/Forms/UMForm";
-import FormInput from "../components/Forms/FormInput";
+import FormInput from "../components/Forms/UMInput";
 
 const Login = () => {
   const dispatch = useAppDispatch();

@@ -1,6 +1,7 @@
 import { Form, Input } from "antd";
 import { Controller} from "react-hook-form";
 
+
 type TInputProps ={
   type:string, 
   name:string, 
@@ -8,15 +9,14 @@ type TInputProps ={
   placeholder?:string,
 }
 
-const FormInput = ({ type, name, label,placeholder }:TInputProps) => {
+const UMInput = ({ type, name, label,placeholder }:TInputProps) => {
   return (
-    <div style={{marginBottom:'12px', width:'130%'}}>
-      {/* {label ? label : null} */}
+    <div style={{marginBottom:'12px'}}>
       <Controller
         name={name}
         render={({ field , fieldState:{error}}) => (
           <Form.Item label={label}>
-          <Input style={{height:'40px'}} {...field} type={type} id={name} placeholder={placeholder}/>
+          <Input style={{}} {...field} type={type} id={name} placeholder={placeholder} size="large" />
           {error && <small style={{ color: 'red' }}>{error.message}</small>}
           </Form.Item>
         )}
@@ -25,4 +25,8 @@ const FormInput = ({ type, name, label,placeholder }:TInputProps) => {
   );
 };
 
-export default FormInput;
+export default UMInput;
+
+
+
+

@@ -1,4 +1,4 @@
-import { Col, Flex, Form } from "antd";
+import { Form } from "antd";
 import { ReactElement, ReactNode } from "react";
 import {
   FieldValues,
@@ -9,7 +9,7 @@ import {
 
 type TFormConfig = {
   defaultValues?: Record<string, any>;
-  resolver?:any
+  resolver?: any;
 };
 
 type TFormProps = {
@@ -17,7 +17,12 @@ type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
 } & TFormConfig;
 
-const UMForm = ({ onSubmit, children, defaultValues,resolver }: TFormProps) => {
+const UMForm = ({
+  onSubmit,
+  children,
+  defaultValues,
+  resolver,
+}: TFormProps) => {
   const formconfig: TFormConfig = {};
 
   if (defaultValues) {
@@ -27,15 +32,28 @@ const UMForm = ({ onSubmit, children, defaultValues,resolver }: TFormProps) => {
     formconfig["resolver"] = resolver;
   }
   const methods = useForm(formconfig);
+
+  const submit: SubmitHandler<FieldValues> = (data) => {
+    onSubmit(data);
+    methods.reset();
+  };
+
+  // return (
+  //   <FormProvider {...methods}>
+  //     <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
+  //       {children}
+  //     </Form>
+  //   </FormProvider>
+  // );
+
   return (
-    <Flex justify="center" align="">
-      <Col span={6}>
-        <FormProvider {...methods}>
-          <Form layout="vertical" onFinish={methods.handleSubmit(onSubmit)}>{children}</Form>
-        </FormProvider>
-      </Col>
-      
-    </Flex>
+    <>
+      <FormProvider {...methods}>
+        <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
+          {children}
+        </Form>
+      </FormProvider>
+    </>
   );
 };
 

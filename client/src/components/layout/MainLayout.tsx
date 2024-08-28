@@ -17,7 +17,7 @@ const MainLayout = () => {
 
 
   return (
-    <Layout style={{ height: '100vh' }}>
+    <Layout style={{ height: '100%' }}>
         <SideBar/>
       <Layout>
         <Header style={{ padding: 0}} >
@@ -28,7 +28,7 @@ const MainLayout = () => {
         <Content style={{ margin: '24px 16px 0' }}>
           <div
             style={{
-              padding: 4,
+              padding: 24,
               minHeight: 360,
             }}
           >

@@ -4,14 +4,15 @@ import { Controller } from "react-hook-form";
 type TPHSelectProps = {
   label: string;
   name: string;
-  options: { value: string; label: string; disabled?: boolean }[];
+  options: { value: string; label: string; disabled?: boolean}[] |undefined;
   placeholder?: string;
   defaultValue?: string; // Add defaultValue props
+  disabled?: boolean;
 };
 
-const UMSelect = ({ label, name, options, placeholder,defaultValue }: TPHSelectProps) => {
+const UMSelect = ({ label, name, options, placeholder,defaultValue,disabled }: TPHSelectProps) => {
   return (
-    <div style={{marginBottom:'12px', width:'130%'}}>
+    <div style={{marginBottom:'12px'}}>
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (
@@ -23,6 +24,7 @@ const UMSelect = ({ label, name, options, placeholder,defaultValue }: TPHSelectP
               size="large"
               placeholder={placeholder}
               defaultValue={defaultValue}
+              disabled={disabled}
             />
             {error && <small style={{ color: "red" }}>{error.message}</small>}
           </Form.Item>

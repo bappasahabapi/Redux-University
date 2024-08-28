@@ -20,8 +20,10 @@ react-hook-form
 
 ### Steps:
 
--- Create Faculty
--- Create Department
+- **Part-5:**
+    - 1. Get Data Using Form Data Api
+    - 2. Basic Form Structure for Student
+    - 3. Date picker and Dynamic Options for Student Data
 
 - **Part-4:**
     - 1.Working on User Management
@@ -36,6 +38,8 @@ react-hook-form
     - 10. Generic Type for response data
     - 11. Handle Table Filter in Redux params
     - 12. Wrap module
+-- Create Faculty
+-- Create Department
 
 - **Part-2A-Authentication-Token:**
     - 7.Make Form Wrapper [Form Provider Props](https://react-hook-form.com/docs/formprovider)

@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import FormInput from "../../../components/Forms/FormInput";
+import FormInput from "../../../components/Forms/UMInput";
 import UMForm from "../../../components/Forms/UMForm";
 import { FieldValues} from "react-hook-form";
 import { toast } from "sonner";
