@@ -24,6 +24,7 @@ react-hook-form
     - 1. Get Data Using Form Data Api
     - 2. Basic Form Structure for Student
     - 3. Date picker and Dynamic Options for Student Data
+    - 4 Parallel query and dependent query handle postdata
 
 - **Part-4:**
     - 1.Working on User Management

@@ -7,6 +7,8 @@ import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 import UMDatePiker from "../../../components/Forms/UMDatePicker";
 import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicManagementApi";
 import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academicDepartmentApi";
+import { ScheduleOutlined } from "@ant-design/icons";
+import { useAddStudentMutation } from "../../../redux/features/admin/userManagementApi";
 
 // const studentDummyData = {
 //   password: "student123",
@@ -38,8 +40,8 @@ import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academic
 //       contactNo: "777-888-9999",
 //       address: "789 Pine St, Villageton",
 //     },
-//     admissionSemester: "65b0104110b74fcbd7a25d92",
-//     academicDepartment: "65b00fb010b74fcbd7a25d8e",
+//       admissionSemester: "66cc1d2dc7a5c5b601ca9e5b",
+  // academicDepartment: "66cdc3ba56eca97ec2664587",
 //   },
 // };
 
@@ -52,7 +54,7 @@ const studentDefaultValues = {
   },
   gender: "male",
   // dateOfBirth: "1990-01-01",
-  email: "student1@gmail.com",
+  email: "student11@gmail.com",
   contactNo: "1235678",
   emergencyContactNo: "987-654-3210",
   bloogGroup: "A+",
@@ -72,13 +74,14 @@ const studentDefaultValues = {
     contactNo: "777-888-9999",
     address: "789 Pine St, Villageton",
   },
-  // admissionSemester: "65b0104110b74fcbd7a25d92",
-  // academicDepartment: "65b00fb010b74fcbd7a25d8e",
+  academicDepartment: "66cdc3ba56eca97ec2664587",
+  admissionSemester: "66cc1d2dc7a5c5b601ca9e5b",
 };
 
 const CreateStudent = () => {
   const {data:semesterData,isLoading:sIsLoading}=useGetAllSemesterQuery(undefined);
-  const {data:departmentData, isLoading:dIsLoading}=useGetAllDepartmentQuery(undefined)
+  const {data:departmentData, isLoading:dIsLoading}=useGetAllDepartmentQuery(undefined,{skip:sIsLoading});
+  const [addStudent,] =useAddStudentMutation()
   // console.log(departmentData)
   // console.log(semesterData)
 
@@ -91,13 +94,22 @@ const CreateStudent = () => {
     value:department._id
   }))
 
+
+  //todo: Post part
   const handleSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
 
-//     //todo: Here working with formdata
-//     const formData = new FormData();
+    const studentData ={
+      password:"student123",
+      student:data
+    }
+
+  //todo: Here working with formdata
+    const formData = new FormData();
 //     // formData.append('persodanName','bappa saha');
-//     // formData.append("data", JSON.stringify(data));
+    // formData.append("data", JSON.stringify(data));
+    formData.append("data", JSON.stringify(studentData));
+    addStudent(formData)
 
 //     //! devlopment purpose for checking
 //     console.log(Object.fromEntries(formData));
@@ -109,8 +121,8 @@ const CreateStudent = () => {
       <h2>Create Student </h2>
       <Col span={24}>
         <UMForm onSubmit={handleSubmit} defaultValues={studentDefaultValues}>
-          <Divider style={{ color: "green", fontSize: "20px" }}>
-            Personal Information 
+          <Divider style={{ color: "green", fontSize: "20px",}}>
+          <ScheduleOutlined /> Personal Information 
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
@@ -141,7 +153,7 @@ const CreateStudent = () => {
             </Col>
           </Row>
           {/* -----------------------  */}
-          <Divider style={{ color: "green", fontSize: "20px" }}>
+          <Divider style={{ color: "green", fontSize: "20px"  }}>
             Guardian Information
           </Divider>
           <Row gutter={8}>
