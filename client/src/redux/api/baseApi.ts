@@ -11,6 +11,13 @@ import { RootState } from "../store";
 import { logout, setUser } from "../features/auth/authSlice";
 import { toast } from "sonner";
 
+
+interface ErrorResponse {
+  message: string;
+  // Add other fields as needed
+}
+
+
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:5000/api/v1/",
   credentials: "include",
@@ -32,7 +39,9 @@ const baseQuesyWithRefreshToken: BaseQueryFn<
   // console.log(result);
 
   if(result?.error?.status===404){
-    toast.error(result.error.data.message)
+    // toast.error(result.error.data.message) 
+    const errorData = result.error.data as ErrorResponse; // Type assertion
+    toast.error(errorData.message);
   }
 
   //!:create new refresh token handle unauthorized requests [Not Working]

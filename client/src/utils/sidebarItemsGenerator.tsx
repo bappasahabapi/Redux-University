@@ -3,7 +3,7 @@ import { TSidebarItem, TUserPath } from '../types';
 import { NavLink } from 'react-router-dom';
 
 
-export const sidebarItemsGenerator = (items: TUserPath[], role) => {
+export const sidebarItemsGenerator = (items: TUserPath[], role:any) => {
   const sidebarItems = items.reduce((acc: TSidebarItem[], item) => {
     if (item.path && item.name) {
       acc.push({
