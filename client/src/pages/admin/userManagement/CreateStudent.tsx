@@ -7,8 +7,9 @@ import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 import UMDatePiker from "../../../components/Forms/UMDatePicker";
 import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicManagementApi";
 import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academicDepartmentApi";
-import { ScheduleOutlined } from "@ant-design/icons";
+import { ScheduleOutlined,} from "@ant-design/icons";
 import { useAddStudentMutation } from "../../../redux/features/admin/userManagementApi";
+import { Link } from "react-router-dom";
 
 // const studentDummyData = {
 //   password: "student123",
@@ -98,7 +99,7 @@ const CreateStudent = () => {
 
   //todo: Post part
   const handleSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    // console.log(data);
 
     const studentData = {
       password: "student123",
@@ -112,7 +113,7 @@ const CreateStudent = () => {
     formData.append("data", JSON.stringify(studentData));
     formData.append("file",data.image)
     addStudent(formData)
-    console.log(formData)
+    // console.log(formData)
 
     //     //! devlopment purpose for checking
     //     console.log(Object.fromEntries(formData));
@@ -121,7 +122,9 @@ const CreateStudent = () => {
   };
   return (
     <Row>
-      <h2>Create Student </h2>
+       
+      <h1 style={{marginRight:"100px"}}> <Link to="/admin/students-data">   ⬅️  Back to Student List </Link></h1> 
+
       <Col span={24}>
         <UMForm onSubmit={handleSubmit} defaultValues={studentDefaultValues}>
           <Divider style={{ color: "green", fontSize: "20px" }}>

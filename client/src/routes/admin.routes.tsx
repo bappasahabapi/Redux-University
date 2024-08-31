@@ -12,6 +12,7 @@ import AdminDashboard from '../pages/admin/AdminDashboard';
 import CreateAdmin from '../pages/admin/userManagement/CreateAdmin';
 import CreateFaculty from '../pages/admin/userManagement/CreateFaculty';
 import CreateStudent from '../pages/admin/userManagement/CreateStudent';
+import StudentData from '../pages/admin/userManagement/StudentData';
 
  export const adminPaths = [
   {
@@ -60,6 +61,16 @@ import CreateStudent from '../pages/admin/userManagement/CreateStudent';
     name: 'User Management',
     children: [
       {
+        name: 'Create Student',
+        path: 'create-student',
+        element: <CreateStudent />,
+      },
+      {
+        // name: 'Student',
+        path: 'students-data',
+        element: <StudentData />,
+      },
+      {
         name: 'Create Admin',
         path: 'create-admin',
         element: <CreateAdmin />,
@@ -68,11 +79,6 @@ import CreateStudent from '../pages/admin/userManagement/CreateStudent';
         name: 'Create Faculty',
         path: 'create-faculty',
         element: <CreateFaculty />,
-      },
-      {
-        name: 'Create Student',
-        path: 'create-student',
-        element: <CreateStudent />,
       },
       {
         name: 'Create Member',
