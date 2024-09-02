@@ -66,7 +66,7 @@ import StudentData from '../pages/admin/userManagement/StudentData';
         element: <CreateStudent />,
       },
       {
-        // name: 'Student',
+        name: 'Student',
         path: 'students-data',
         element: <StudentData />,
       },

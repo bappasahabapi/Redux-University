@@ -1,4 +1,4 @@
-// import Sider from "antd/es/layout/Sider";
+
 import { adminPaths } from "../../routes/admin.routes";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { Menu,Layout} from "antd";
@@ -22,7 +22,8 @@ const SideBar = () => {
   // console.log(user) 
 
   // const role ='admin'
-    let sidebarItems;
+    // let sidebarItems;
+    let sidebarItems:any;
 
     // switch (role) {
     switch (user!.role) {

@@ -7,7 +7,7 @@ import { bloodGroupOptions, genderOptions } from "../../../constants/global";
 import UMDatePiker from "../../../components/Forms/UMDatePicker";
 import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicManagementApi";
 import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academicDepartmentApi";
-import { ScheduleOutlined,} from "@ant-design/icons";
+import { ContactsOutlined, IdcardOutlined, ScheduleOutlined,} from "@ant-design/icons";
 import { useAddStudentMutation } from "../../../redux/features/admin/userManagementApi";
 import { Link } from "react-router-dom";
 
@@ -173,7 +173,7 @@ const CreateStudent = () => {
               />
             </Col>
           </Row>
-          <Divider style={{ color: "green", fontSize: "20px" }}>Contact Info.</Divider>
+          <Divider style={{ color: "green", fontSize: "20px" }}> <ContactsOutlined /> Contact Info.</Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <UMInput type="text" name="email" label="Email" />
@@ -205,7 +205,7 @@ const CreateStudent = () => {
           </Row>
           {/* -----------------------  */}
           <Divider style={{ color: "green", fontSize: "20px" }}>
-            Guardian Information
+          <ContactsOutlined /> Guardian Information
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
@@ -274,7 +274,7 @@ const CreateStudent = () => {
             </Col>
           </Row>
           <Divider style={{ color: "green", fontSize: "20px" }}>
-            Academic Info.
+          <IdcardOutlined /> Academic Info.
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
