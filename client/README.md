@@ -28,6 +28,7 @@ react-hook-form
     - 5 Handle Image Upload part.
     - 6 Show Student Data.
     - 7 Fix fronted page limit pagination.
+    - 8 Fix student data pagination part
 
 - **Part-4:**
     - 1.Working on User Management

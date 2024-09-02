@@ -18,8 +18,8 @@ export interface TStudent {
   profileImg: string;
   admissionSemester: TAcademicSemester;
   isDeleted: boolean;
-  academicDepartment: TAcademicDepartment;
-  academicFaculty: TAcademicFaculty;
+  academicDepartment: TAcademicDepartment ;
+  academicFaculty: TAcademicFaculty ;
   fullName: string;
 }
 
