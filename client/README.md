@@ -27,6 +27,7 @@ react-hook-form
     - 4 Parallel query and dependent query handle postdata
     - 5 Handle Image Upload part.
     - 6 Show Student Data.
+    - 7 Fix fronted page limit pagination.
 
 - **Part-4:**
     - 1.Working on User Management

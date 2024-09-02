@@ -9,7 +9,8 @@ import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicMa
 import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academicDepartmentApi";
 import { ContactsOutlined, IdcardOutlined, ScheduleOutlined,} from "@ant-design/icons";
 import { useAddStudentMutation } from "../../../redux/features/admin/userManagementApi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 // const studentDummyData = {
 //   password: "student123",
@@ -80,6 +81,7 @@ const studentDefaultValues = {
 };
 
 const CreateStudent = () => {
+  const navigate=useNavigate();
   const { data: semesterData, isLoading: sIsLoading } =
     useGetAllSemesterQuery(undefined);
   const { data: departmentData, isLoading: dIsLoading } =
@@ -101,6 +103,8 @@ const CreateStudent = () => {
   const handleSubmit: SubmitHandler<FieldValues> = (data) => {
     // console.log(data);
 
+  const toastId= toast.success("Student is Creating ...",{duration:1500})
+
     const studentData = {
       password: "student123",
       student: data,
@@ -113,6 +117,15 @@ const CreateStudent = () => {
     formData.append("data", JSON.stringify(studentData));
     formData.append("file",data.image)
     addStudent(formData)
+    toast.success("Student Created Successfully",{
+      id: toastId,
+      richColors: true,
+      position: "top-center",
+    })
+    setTimeout(()=>{
+      navigate("/admin/students-data")
+
+    },2000)
     // console.log(formData)
 
     //     //! devlopment purpose for checking

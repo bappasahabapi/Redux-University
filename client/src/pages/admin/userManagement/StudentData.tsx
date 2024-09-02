@@ -33,15 +33,26 @@ const columns: TableColumnsType<TTableData> = [
         </Space>
       );
     },
-    width:"1%"
+    width: "1%",
   },
 ];
 
 const StudentData = () => {
-  const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);
-  const { data: studentData, isFetching } = useGetAllStudentsQuery(params);
+  const [params, setParams] = useState<TQueryParam[]>([]);
+  const [page,]=useState(1)
 
-//   console.log(studentData);
+
+
+
+  const { data: studentData, isFetching } = useGetAllStudentsQuery([
+    { name: "limit", value: 10 },
+    { name: "page", value: page },
+    // { name: "page", value: 2 },
+    {name:'sort', value:"id"},
+    ...params,
+  ]);
+
+  //   console.log(studentData);
 
   const tableData = studentData?.data?.map(({ _id, fullName, id }) => ({
     key: _id,
@@ -55,7 +66,6 @@ const StudentData = () => {
     _sorter,
     extra
   ) => {
-    // console.log({filters}, {extra});
     if (extra.action === "filter") {
       const queryParams: TQueryParam[] = [];
 
@@ -72,9 +82,8 @@ const StudentData = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/admin/create-student"); 
+    navigate("/admin/create-student");
   };
-
 
   return (
     <div>
