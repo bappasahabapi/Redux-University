@@ -1,7 +1,3 @@
-
-
-
-
 import AcademicDepartment from '../pages/admin/academicManagement/AcademicDepartment';
 import AcademicFaculty from '../pages/admin/academicManagement/AcademicFaculty';
 import AcademicSemester from '../pages/admin/academicManagement/AcademicSemester';
@@ -14,6 +10,7 @@ import CreateFaculty from '../pages/admin/userManagement/CreateFaculty';
 import CreateStudent from '../pages/admin/userManagement/student/CreateStudent';
 import StudentDetails from '../pages/admin/userManagement/student/StudentDetails';
 import StudentData from '../pages/admin/userManagement/student/StudentData';
+import StudentUpdate from '../pages/admin/userManagement/student/StudentUpdate';
 
  export const adminPaths = [
   {
@@ -67,7 +64,7 @@ import StudentData from '../pages/admin/userManagement/student/StudentData';
         element: <CreateStudent />,
       },
       {
-        name: 'Student',
+        // name: 'Student',
         path: 'students-data',
         element: <StudentData />,
       },
@@ -75,6 +72,11 @@ import StudentData from '../pages/admin/userManagement/student/StudentData';
         // name: 'Student',
         path: 'students-data/:studentId',
         element: <StudentDetails />,
+      },
+      {
+        // name: 'Update-Student',
+        path: 'students-update/:studentId',
+        element: <StudentUpdate />,
       },
       {
         name: 'Create Admin',

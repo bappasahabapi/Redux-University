@@ -10,6 +10,7 @@ import {
 import { RootState } from "../store";
 import { logout, setUser } from "../features/auth/authSlice";
 import { toast } from "sonner";
+import { tagTypesList } from "../tag-types";
 
 
 interface ErrorResponse {
@@ -78,5 +79,6 @@ export const baseApi = createApi({
   reducerPath: "baseApi",
   // baseQuery:baseQuery,
   baseQuery: baseQuesyWithRefreshToken,
+  tagTypes:tagTypesList,
   endpoints: () => ({}),
 });
