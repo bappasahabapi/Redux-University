@@ -30,6 +30,7 @@ react-hook-form
     - 7 Fix fronted page limit pagination.
     - 8 Fix student data pagination part
     - 9 Making dynamic route for student details page.
+    - 10 Add dynamic route for student details and show data
 
 - **Part-4:**
     - 1.Working on User Management
