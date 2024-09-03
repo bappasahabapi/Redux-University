@@ -1,4 +1,4 @@
-import { Button, Col, Row } from "antd";
+import { Button, Col, Image, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import UMForm from "../components/Forms/UMForm";
 import FormInput from "../components/Forms/UMInput";
+import LoginImage from '../../public/login.png'
 
 const Login = () => {
   const dispatch = useAppDispatch();
@@ -70,10 +71,10 @@ const Login = () => {
         }}
       >
         <Col sm={12} md={18} lg={8}>
-          <p>Login Image</p>
+          <Image src={LoginImage}/>
         </Col>
 
-        <Col sm={12} md={8} lg={8}>
+        <Col sm={12} md={8} lg={8} style={{marginLeft:"30px"}}>
           <h1 style={{ margin: "18px " }}>First login your account</h1>
           <div>
             <UMForm onSubmit={onSubmitLogin} defaultValues={defaultValues}>

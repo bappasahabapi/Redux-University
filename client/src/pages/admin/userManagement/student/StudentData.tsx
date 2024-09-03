@@ -1,9 +1,17 @@
-import { Button, Pagination, Space, Table, TableColumnsType, TableProps } from "antd";
+import {
+  Button,
+  Pagination,
+  Space,
+  Table,
+  TableColumnsType,
+  TableProps,
+} from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { TQueryParam } from "../../../../constants/global";
 import { useGetAllStudentsQuery } from "../../../../redux/features/admin/userManagementApi";
 import { DeleteOutlined, EditFilled, EyeOutlined } from "@ant-design/icons";
+import { Tooltip } from "antd";
 // import { TStudent } from "../../../types";
 
 // export type TTableData = Pick<TStudent, "fullName" | "id"|"email"|"academicDepartment"|"academicFaculty">;
@@ -12,8 +20,8 @@ type TTableData = {
   fullName: string;
   id: string;
   email: string;
-  academicDepartment: string;  // Expecting only the name (string)
-  academicFaculty: string;  // Expecting only the name (string)
+  academicDepartment: string; // Expecting only the name (string)
+  academicFaculty: string; // Expecting only the name (string)
 };
 
 const columns: TableColumnsType<TTableData> = [
@@ -47,11 +55,13 @@ const columns: TableColumnsType<TTableData> = [
     title: "Action",
     key: "X",
     render: (item) => {
-      // console.log(item.key) 
+      // console.log(item.key)
       return (
-        <Space style={{fontSize:'25px'}}>
+        <Space style={{ fontSize: "25px" }}>
           <Link to={`/admin/students-data/${item?.key}`}>
-          <EyeOutlined  />
+            <Tooltip title="🧑‍🏫 View Student details" color="green">
+              <EyeOutlined />
+            </Tooltip>
           </Link>
           <EditFilled />
           <DeleteOutlined style={{ color: "red", fontWeight: "bolder" }} />
@@ -65,31 +75,30 @@ const columns: TableColumnsType<TTableData> = [
 
 const StudentData = () => {
   const [params, setParams] = useState<TQueryParam[]>([]);
-  const [page,setPage]=useState(1)
-
-
-
+  const [page, setPage] = useState(1);
 
   const { data: studentData, isFetching } = useGetAllStudentsQuery([
     { name: "limit", value: 5 },
     { name: "page", value: page },
     // { name: "page", value: 2 },
-    {name:'sort', value:"id"},
+    { name: "sort", value: "id" },
     ...params,
   ]);
 
-  const metaData =studentData?.meta
+  const metaData = studentData?.meta;
 
   //   console.log(studentData);
 
-  const tableData = studentData?.data?.map(({ _id, fullName, id ,email,academicDepartment,academicFaculty }) => ({
-    key: _id,
-    fullName,
-    id,
-    email,
-    academicDepartment:academicDepartment?.name,
-    academicFaculty:academicFaculty?.name,
-  })) ;
+  const tableData = studentData?.data?.map(
+    ({ _id, fullName, id, email, academicDepartment, academicFaculty }) => ({
+      key: _id,
+      fullName,
+      id,
+      email,
+      academicDepartment: academicDepartment?.name,
+      academicFaculty: academicFaculty?.name,
+    })
+  );
 
   const onChange: TableProps<TTableData>["onChange"] = (
     _pagination,
@@ -133,10 +142,10 @@ const StudentData = () => {
         pagination={false}
       />
       <Pagination
-      total={metaData?.total}
-      pageSize={metaData?.limit}
-      onChange={(clickedPage)=>setPage(clickedPage)}
-      current={page}
+        total={metaData?.total}
+        pageSize={metaData?.limit}
+        onChange={(clickedPage) => setPage(clickedPage)}
+        current={page}
       />
     </div>
   );
