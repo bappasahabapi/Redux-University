@@ -1,14 +1,14 @@
 import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
-import UMForm from "../../../components/Forms/UMForm";
-import UMInput from "../../../components/Forms/UMInput";
+import UMForm from "../../../../components/Forms/UMForm";
+import UMInput from "../../../../components/Forms/UMInput";
 import { Button, Col, Divider, Form, Input, Row } from "antd";
-import UMSelect from "../../../components/Forms/UMSelect";
-import { bloodGroupOptions, genderOptions } from "../../../constants/global";
-import UMDatePiker from "../../../components/Forms/UMDatePicker";
-import { useGetAllSemesterQuery } from "../../../redux/features/admin/academicManagementApi";
-import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academicDepartmentApi";
+import UMSelect from "../../../../components/Forms/UMSelect";
+import { bloodGroupOptions, genderOptions } from "../../../../constants/global";
+import UMDatePiker from "../../../../components/Forms/UMDatePicker";
+import { useGetAllSemesterQuery } from "../../../../redux/features/admin/academicManagementApi";
+import { useGetAllDepartmentQuery } from "../../../../redux/features/admin/academicDepartmentApi";
 import { ContactsOutlined, IdcardOutlined, ScheduleOutlined,} from "@ant-design/icons";
-import { useAddStudentMutation } from "../../../redux/features/admin/userManagementApi";
+import { useAddStudentMutation } from "../../../../redux/features/admin/userManagementApi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 

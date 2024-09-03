@@ -1,8 +1,8 @@
 import { Button, Pagination, Space, Table, TableColumnsType, TableProps } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { TQueryParam } from "../../../constants/global";
-import { useGetAllStudentsQuery } from "../../../redux/features/admin/userManagementApi";
+import { TQueryParam } from "../../../../constants/global";
+import { useGetAllStudentsQuery } from "../../../../redux/features/admin/userManagementApi";
 import { DeleteOutlined, EditFilled, EyeOutlined } from "@ant-design/icons";
 // import { TStudent } from "../../../types";
 
@@ -46,10 +46,13 @@ const columns: TableColumnsType<TTableData> = [
   {
     title: "Action",
     key: "X",
-    render: () => {
+    render: (item) => {
+      // console.log(item.key) 
       return (
-        <Space>
-          <EyeOutlined />
+        <Space style={{fontSize:'25px'}}>
+          <Link to={`/admin/students-data/${item?.key}`}>
+          <EyeOutlined  />
+          </Link>
           <EditFilled />
           <DeleteOutlined style={{ color: "red", fontWeight: "bolder" }} />
           <Button>Blocked</Button>
@@ -68,7 +71,7 @@ const StudentData = () => {
 
 
   const { data: studentData, isFetching } = useGetAllStudentsQuery([
-    { name: "limit", value: 3 },
+    { name: "limit", value: 5 },
     { name: "page", value: page },
     // { name: "page", value: 2 },
     {name:'sort', value:"id"},
