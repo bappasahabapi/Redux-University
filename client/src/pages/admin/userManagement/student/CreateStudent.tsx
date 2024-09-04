@@ -7,10 +7,16 @@ import { bloodGroupOptions, genderOptions } from "../../../../constants/global";
 import UMDatePiker from "../../../../components/Forms/UMDatePicker";
 import { useGetAllSemesterQuery } from "../../../../redux/features/admin/academicManagementApi";
 import { useGetAllDepartmentQuery } from "../../../../redux/features/admin/academicDepartmentApi";
-import { ContactsOutlined, IdcardOutlined, ScheduleOutlined,} from "@ant-design/icons";
+import {
+  ContactsOutlined,
+  IdcardOutlined,
+  ScheduleOutlined,
+} from "@ant-design/icons";
 import { useAddStudentMutation } from "../../../../redux/features/admin/userManagementApi";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { studentSchema } from "../../../../schemas/userManagementSchema";
 
 // const studentDummyData = {
 //   password: "student123",
@@ -52,36 +58,36 @@ const studentDefaultValues = {
   name: {
     firstName: "I am ",
     middleName: "Student",
-    lastName: "Number 1",
+    lastName: "Bappa Saha Bapi",
   },
   gender: "male",
-  // dateOfBirth: "1990-01-01",
-  email: "bappastudent11@gmail.com",
-  contactNo: "1235678",
-  emergencyContactNo: "987-654-3210",
+  dateOfBirth: "1996-06-01",
+  email: "bsb1@gmail.com",
+  contactNo: "01722842006",
+  emergencyContactNo: "01722842007",
   bloogGroup: "A+",
-  presentAddress: "123 Main St, Cityville",
-  permanentAddress: "456 Oak St, Townsville",
+  presentAddress: "Shahbag,Dhaka",
+  permanentAddress: "Hallpara , Thakurgaon",
   guardian: {
-    fatherName: "James Doe",
+    fatherName: "Mr.Dad",
     fatherOccupation: "Engineer",
     fatherContactNo: "111-222-3333",
-    motherName: "Mary Doe",
+    motherName: "Mis. Mom",
     motherOccupation: "Teacher",
     motherContactNo: "444-555-6666",
   },
   localGuardian: {
-    name: "Alice Johnson",
+    name: "Jamal Kudu",
     occupation: "Doctor",
-    contactNo: "777-888-9999",
-    address: "789 Pine St, Villageton",
+    contactNo: "01722842008",
+    address: "Hallpara , Thakurgaon",
   },
-  academicDepartment: "66cdc3ba56eca97ec2664587",
-  admissionSemester: "66cc1d2dc7a5c5b601ca9e5b",
+  // academicDepartment: "66cdc3ba56eca97ec2664587",
+  // admissionSemester: "66cc1d2dc7a5c5b601ca9e5b",
 };
 
 const CreateStudent = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { data: semesterData, isLoading: sIsLoading } =
     useGetAllSemesterQuery(undefined);
   const { data: departmentData, isLoading: dIsLoading } =
@@ -103,7 +109,9 @@ const CreateStudent = () => {
   const handleSubmit: SubmitHandler<FieldValues> = (data) => {
     // console.log(data);
 
-  const toastId= toast.success("Student is Creating ...",{duration:1500})
+    const toastId = toast.success("Student is Creating ...", {
+      duration: 1500,
+    });
 
     const studentData = {
       password: "student123",
@@ -115,17 +123,16 @@ const CreateStudent = () => {
     //     // formData.append('persodanName','bappa saha');
     // formData.append("data", JSON.stringify(data));
     formData.append("data", JSON.stringify(studentData));
-    formData.append("file",data.image)
-    addStudent(formData)
-    toast.success("Student Created Successfully",{
+    formData.append("file", data.image);
+    addStudent(formData);
+    toast.success("Student Created Successfully", {
       id: toastId,
       richColors: true,
       position: "top-center",
-    })
-    setTimeout(()=>{
-      navigate("/admin/students-data")
-
-    },2000)
+    });
+    setTimeout(() => {
+      navigate("/admin/students-data");
+    }, 2000);
     // console.log(formData)
 
     //     //! devlopment purpose for checking
@@ -135,11 +142,17 @@ const CreateStudent = () => {
   };
   return (
     <Row>
-       
-      <h1 style={{marginRight:"100px"}}> <Link to="/admin/students-data">   ⬅️  Back to Student List </Link></h1> 
+      <h1 style={{ marginRight: "100px" }}>
+        {" "}
+        <Link to="/admin/students-data"> ⬅️ Back to Student List </Link>
+      </h1>
 
       <Col span={24}>
-        <UMForm onSubmit={handleSubmit} defaultValues={studentDefaultValues}>
+        <UMForm
+          onSubmit={handleSubmit}
+          defaultValues={studentDefaultValues}
+          resolver={zodResolver(studentSchema)}
+        >
           <Divider style={{ color: "green", fontSize: "20px" }}>
             <ScheduleOutlined /> Personal Information
           </Divider>
@@ -186,7 +199,10 @@ const CreateStudent = () => {
               />
             </Col>
           </Row>
-          <Divider style={{ color: "green", fontSize: "20px" }}> <ContactsOutlined /> Contact Info.</Divider>
+          <Divider style={{ color: "green", fontSize: "20px" }}>
+            {" "}
+            <ContactsOutlined /> Contact Info.
+          </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <UMInput type="text" name="email" label="Email" />
@@ -218,7 +234,7 @@ const CreateStudent = () => {
           </Row>
           {/* -----------------------  */}
           <Divider style={{ color: "green", fontSize: "20px" }}>
-          <ContactsOutlined /> Guardian Information
+            <ContactsOutlined /> Guardian Information
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
@@ -240,6 +256,13 @@ const CreateStudent = () => {
                 type="text"
                 name="guardian.fatherContactNo"
                 label="Father ContactNo"
+              />
+            </Col>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <UMInput
+                type="text"
+                name="guardian.motherName"
+                label="Mother Name"
               />
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
@@ -287,7 +310,7 @@ const CreateStudent = () => {
             </Col>
           </Row>
           <Divider style={{ color: "green", fontSize: "20px" }}>
-          <IdcardOutlined /> Academic Info.
+            <IdcardOutlined /> Academic Info.
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
