@@ -15,7 +15,7 @@ const UMInput = ({ type, name, label,placeholder }:TInputProps) => {
       <Controller
         name={name}
         render={({ field , fieldState:{error}}) => (
-          <Form.Item label={label}>
+          <Form.Item label={label} style={{fontWeight:"bolder"}}>
           <Input style={{}} {...field} type={type} id={name} placeholder={placeholder} size="large" />
           {error && <small style={{ color: 'red' }}>{error.message}</small>}
           </Form.Item>

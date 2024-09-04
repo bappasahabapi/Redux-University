@@ -13,8 +13,8 @@ const gridStyle: React.CSSProperties = {
   marginRight: "20px",
 };
 const gridStyle1: React.CSSProperties = {
-  width: "20%",
-  textAlign: "center",
+  width: "30%",
+  textAlign: "left",
   padding: "50px",
   cursor: "pointer",
   fontSize: "25px",
@@ -22,6 +22,7 @@ const gridStyle1: React.CSSProperties = {
   backgroundColor: "snow",
   marginBottom: "20px",
   marginRight: "20px",
+  // margin:"30px"
 };
 
 const AdminDashboard = () => {
@@ -45,7 +46,7 @@ const AdminDashboard = () => {
           <Link to="/admin/students-data">01-Student List</Link>
         </Card.Grid>
       </Card>
-      <Card title="Academic Management" style={{ marginTop: "20px" }}>
+      <Card title="Academic Management" style={{ marginTop: "20px" ,textAlign: "center"  }}>
         <Card.Grid style={gridStyle}>
           {" "}
           <Link to="/admin/academic-semester">01-Academic Semester</Link>
@@ -66,14 +67,10 @@ const AdminDashboard = () => {
           <Link to="/admin/registered-semesters">01-Registered Semester</Link>
         </Card.Grid>
         <Card.Grid style={gridStyle1}>
-          {/* <Link to="/admin/students-data">01-Semester Registration</Link>
+          <Link to="/admin/courses">02-Courses</Link>
         </Card.Grid>
-        <Card.Grid style={gridStyle1}>
-          <Link to="/admin/students-data">01-Semester Registration</Link>
-        </Card.Grid>
-        <Card.Grid style={gridStyle1}>
-          <Link to="/admin/students-data">01-Semester Registration</Link> */}
-        </Card.Grid>
+      
+       
       </Card>
     </div>
   );

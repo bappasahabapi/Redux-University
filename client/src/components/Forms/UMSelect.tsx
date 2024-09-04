@@ -8,17 +8,19 @@ type TPHSelectProps = {
   placeholder?: string;
   defaultValue?: string; // Add defaultValue props
   disabled?: boolean;
+  mode?:"multiple" |undefined
 };
 
-const UMSelect = ({ label, name, options, placeholder,defaultValue,disabled }: TPHSelectProps) => {
+const UMSelect = ({ label, name, options, placeholder,defaultValue,disabled,mode }: TPHSelectProps) => {
   return (
     <div style={{marginBottom:'12px'}}>
       <Controller
         name={name}
         render={({ field, fieldState: { error } }) => (
-          <Form.Item label={label}>
+          <Form.Item label={label} style={{fontWeight:"bolder"}}>
             <Select
               {...field}
+              mode={mode}
               options={options}
               style={{ width: "100%" }}
               size="large"

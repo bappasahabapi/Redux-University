@@ -26,6 +26,8 @@ react-hook-form
     - 3. Handle Status change dropdown
     - 4. Register  Semester Update Status
     - 5. Handle Cache of Semester Registration
+    - 6. `Course` handle multiple select options
+    - 7. `Course` Create Course
 
 - **Part-5:**
     - 1. Get Data Using Form Data Api
