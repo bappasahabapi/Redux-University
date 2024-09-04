@@ -1,44 +1,55 @@
-import { Button, Dropdown, Table, TableColumnsType, Tag} from "antd";
+import { Button, Dropdown, Table, TableColumnsType, Tag, Tooltip } from "antd";
 import { useNavigate } from "react-router-dom";
-import {useGetAllRegisteredSemestersQuery } from "../../../redux/features/admin/courseManagementApi";
-import { TSemester} from "../../../types";
+import {
+  useGetAllRegisteredSemestersQuery,
+  useUpdateSemesterStatusMutation,
+} from "../../../redux/features/admin/courseManagementApi";
+import { TSemester } from "../../../types";
 import moment from "moment";
+import { useState } from "react";
 
-export type TTableData = Pick<TSemester, 'startDate' | 'endDate' | 'status'>;
+export type TTableData = Pick<TSemester, "startDate" | "endDate" | "status">;
 const items = [
   {
-    label: 'Upcoming',
-    key: 'UPCOMING',
+    label: "Upcoming",
+    key: "UPCOMING",
   },
   {
-    label: 'Ongoing',
-    key: 'ONGOING',
+    label: "Ongoing",
+    key: "ONGOING",
   },
   {
-    label: 'Ended',
-    key: 'ENDED',
+    label: "Ended",
+    key: "ENDED",
   },
 ];
 
-
-
-
 const RegisteredSemesters = () => {
-
-  const {data:semesterData, isFetching}=useGetAllRegisteredSemestersQuery(undefined)
+  const { data: semesterData, isFetching } =
+    useGetAllRegisteredSemestersQuery(undefined);
+  const [semesterId, setSemesterId] = useState("");
+  const [updateSemesterStatus] = useUpdateSemesterStatusMutation();
 
   const tableData = semesterData?.data?.map(
     ({ _id, academicSemester, status, startDate, endDate }) => ({
       key: _id,
       name: `${academicSemester.name} ${academicSemester.year}`,
       status,
-      startDate: moment(new Date(startDate)).format('MMMM'),
-      endDate:moment(new Date(endDate)).format('MMMM'),
+      startDate: moment(new Date(startDate)).format("MMMM"),
+      endDate: moment(new Date(endDate)).format("MMMM"),
     })
   );
 
-  const handleStatusUpdate = (data) => {
-    console.log(data)
+  const handleStatusUpdate = (data:any) => {
+    // console.log('semesterId:',semesterId)
+    // console.log('newStatus:',data?.key)
+    const updateData = {
+      id: semesterId,
+      data: {
+        status: data.key,
+      },
+    };
+    updateSemesterStatus(updateData);
   };
 
   const menuProps = {
@@ -55,20 +66,19 @@ const RegisteredSemesters = () => {
       title: "Status",
       key: "status",
       dataIndex: "status",
-      render:(item)=>{
+      render: (item) => {
         let color;
-        if(item==='UPCOMING'){
-          color='blue'
+        if (item === "UPCOMING") {
+          color = "blue";
         }
-        if(item==='ONGOING'){
-          color='green'
+        if (item === "ONGOING") {
+          color = "green";
         }
-        if(item==='ENDED'){
-          color='red'
+        if (item === "ENDED") {
+          color = "red";
         }
-        return <Tag color={color}>{item}</Tag>
-      }
-      
+        return <Tag color={color}>{item}</Tag>;
+      },
     },
     {
       title: "Start Date",
@@ -81,21 +91,22 @@ const RegisteredSemesters = () => {
     {
       title: "Action",
       key: "X",
-      render: () => {
+      render: (item) => {
         return (
-          <Dropdown menu={menuProps} trigger={['click']}>
-          <Button >Update</Button>
-        </Dropdown>
+          <Dropdown menu={menuProps} trigger={["click"]}>
+            <Tooltip title="Upcoming->Ongoing->Ended" color="green">
+              <Button onClick={() => setSemesterId(item.key)}>Update</Button>
+            </Tooltip>
+          </Dropdown>
         );
       },
     },
   ];
 
-
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/admin/semester-registration"); 
+    navigate("/admin/semester-registration");
   };
 
   return (

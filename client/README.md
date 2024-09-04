@@ -24,6 +24,8 @@ react-hook-form
     - 1. Handle Semester Registration
     - 2. Semester Registration Table
     - 3. Handle Status change dropdown
+    - 4. Register  Semester Update Status
+    - 5. Handle Cache of Semester Registration
 
 - **Part-5:**
     - 1. Get Data Using Form Data Api

@@ -56,7 +56,7 @@ const SemesterRegistration = () => {
           richColors: true,
           position: "top-center",
         });
-        // navigate("/admin/academic-semester")
+        navigate("/admin/registered-semesters")
       }
     } catch (err) {
       toast.error("Something went wrong", {
@@ -91,7 +91,7 @@ const SemesterRegistration = () => {
       <div
         style={{ marginTop: "45px", display: "flex", justifyContent: "left" }}
       >
-        <Link to="/admin/academic-semester"> ⬅️ Back </Link>
+        <Link to="/admin/registered-semesters"> ⬅️ Back </Link>
       </div>
     </Form>
   );
