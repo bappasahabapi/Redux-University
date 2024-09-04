@@ -1,10 +1,21 @@
-import { Button, Card } from "antd";
+import { Card } from "antd";
 import { Link } from "react-router-dom";
 
 const gridStyle: React.CSSProperties = {
   width: "30%",
   textAlign: "center",
   padding: "85px",
+  cursor: "pointer",
+  fontSize: "20px",
+  fontWeight: "bolder",
+  backgroundColor: "snow",
+  marginBottom: "20px",
+  marginRight: "20px",
+};
+const gridStyle1: React.CSSProperties = {
+  width: "20%",
+  textAlign: "center",
+  padding: "50px",
   cursor: "pointer",
   fontSize: "25px",
   fontWeight: "bolder",
@@ -25,23 +36,6 @@ const AdminDashboard = () => {
           <ol> - Need Faculty Id</ol>
         </li>
       </ul>
-      <Card title="Academic Management" style={{ marginTop: "20px" }}>
-        <Card.Grid style={gridStyle}>
-          {" "}
-          <Link to="/admin/academic-semester">
-            
-              01-Academic Semester
-          </Link>
-        </Card.Grid>
-        <Card.Grid style={gridStyle}>
-          {" "}
-          <Link to="/admin/academic-faculty">02-Academic Faculty</Link>
-        </Card.Grid>
-        <Card.Grid style={gridStyle}>
-          {" "}
-          <Link to="/admin/academic-department">03-Academic Department</Link>
-        </Card.Grid>
-      </Card>
       <Card
         title="User Management"
         style={{ marginTop: "30px", textAlign: "center" }}
@@ -49,6 +43,36 @@ const AdminDashboard = () => {
         <Card.Grid style={gridStyle}>
           {" "}
           <Link to="/admin/students-data">01-Student List</Link>
+        </Card.Grid>
+      </Card>
+      <Card title="Academic Management" style={{ marginTop: "20px" }}>
+        <Card.Grid style={gridStyle}>
+          {" "}
+          <Link to="/admin/academic-semester">01-Academic Semester</Link>
+        </Card.Grid>
+        <Card.Grid style={gridStyle}>
+          {" "}
+          <Link to="/admin/academic-faculty">02-Academic Faculty</Link>
+        </Card.Grid>
+        <Card.Grid style={gridStyle}>
+          <Link to="/admin/academic-department">03-Academic Department</Link>
+        </Card.Grid>
+      </Card>
+      <Card
+        title="User Management"
+        style={{ marginTop: "30px", textAlign: "center" }}
+      >
+        <Card.Grid style={gridStyle1}>
+          <Link to="/admin/registered-semesters">01-Registered Semester</Link>
+        </Card.Grid>
+        <Card.Grid style={gridStyle1}>
+          {/* <Link to="/admin/students-data">01-Semester Registration</Link>
+        </Card.Grid>
+        <Card.Grid style={gridStyle1}>
+          <Link to="/admin/students-data">01-Semester Registration</Link>
+        </Card.Grid>
+        <Card.Grid style={gridStyle1}>
+          <Link to="/admin/students-data">01-Semester Registration</Link> */}
         </Card.Grid>
       </Card>
     </div>

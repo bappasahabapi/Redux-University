@@ -20,6 +20,11 @@ react-hook-form
 
 ### Steps:
 
+- **Part-6:**
+    - 1. Handle Semester Registration
+    - 2. Semester Registration Table
+    - 3. Handle Status change dropdown
+
 - **Part-5:**
     - 1. Get Data Using Form Data Api
     - 2. Basic Form Structure for Student
