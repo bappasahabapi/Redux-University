@@ -61,6 +61,32 @@ const userManagementApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.student],
     }),
 
+    getAllFaculties: builder.query({
+      query: (args) => {
+        const params = new URLSearchParams();
+        if (args) {
+          args.forEach((item: TQueryParam) => {
+            params.append(item.name, item.value as string);
+          });
+        }
+
+        return {
+          url: `/faculties`,
+          method: "GET",
+          params: params,
+        };
+      },
+
+      transformResponse: (response: TResponseRedux<any>) => {
+        // console.log(response)
+        return {
+          data: response.data,
+          meta: response.meta,
+        };
+      },
+      providesTags:[tagTypes.faculty]
+    }),
+
    
   }),
 });
@@ -70,5 +96,7 @@ export const {
   useGetAllStudentsQuery,
   useStudentQuery,
   useUpdateStudentMutation,
-  useDeleteStudentMutation
+  useDeleteStudentMutation,
+
+  useGetAllFacultiesQuery
 } = userManagementApi;

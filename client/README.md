@@ -28,6 +28,7 @@ react-hook-form
     - 5. Handle Cache of Semester Registration
     - 6. `Course` handle multiple select options
     - 7. `Course` Create Course
+    - 8. `Course` Handle Modal
 
 - **Part-5:**
     - 1. Get Data Using Form Data Api

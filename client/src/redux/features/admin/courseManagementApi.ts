@@ -47,13 +47,7 @@ const courseManagementApi = baseApi.injectEndpoints({
       providesTags: [tagTypes.semester],
     }),
 
-    // updateStudent: builder.mutation({
-    //   query: (data) => ({
-    //     url: `/students/${data.studentId}`,
-    //     method: "PATCH",
-    //     body: data.body,
-    //   }),
-    // }),
+    // ------------- Courses ----------------------------------------------------------------
 
     getAllCourses: builder.query({
       query: (args) => {
