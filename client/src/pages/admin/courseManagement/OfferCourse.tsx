@@ -1,10 +1,11 @@
-import { Button, Col, Flex } from "antd";
+import { Breadcrumb, Button, Col, Flex } from "antd";
 import UMForm from "../../../components/Forms/UMForm";
 import UMInput from "../../../components/Forms/UMInput";
 import { useGetAllFacultyQuery } from "../../../redux/features/admin/academicFacultyApi";
 import UMSelectWithWatch from "../../../components/Forms/UMSelectWithWatch";
 import { useState } from "react";
 import { FieldValues, SubmitHandler } from "react-hook-form";
+import { HomeOutlined } from "@ant-design/icons";
 
 const OfferCourse = () => {
 
@@ -26,6 +27,16 @@ const handleSubmit:SubmitHandler<FieldValues> =(data)=>{
 
 
   return (
+    <>
+      <Breadcrumb
+        items={[
+          {
+            href: "/admin/students-data",
+            title:  <HomeOutlined  style={{color:"green", fontWeight:"bolder", fontSize:"30px"}}/>
+          },
+    
+        ]}
+      />
     <Flex justify="center" align="center">
       <Col span={6}>
         <h3>Create Offer Course</h3>
@@ -41,6 +52,7 @@ const handleSubmit:SubmitHandler<FieldValues> =(data)=>{
         </UMForm>
       </Col>
     </Flex>
+          </>
   );
 };
 

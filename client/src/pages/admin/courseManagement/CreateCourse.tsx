@@ -68,7 +68,7 @@ const CreateCourse = () => {
     <Flex justify="center" align="center">
       <Col span={6} style={{}}>
         <Form onSubmit={handleSubmit}>
-          <h2>Create New Course</h2>
+          <h2> Create New Course</h2>
           <hr /> <br />
           <UMInput placeholder="Next js 14" type="text" name="title" label="Course Title" />
           <UMInput placeholder="web" type="text" name="prefix" label="Prefix" />

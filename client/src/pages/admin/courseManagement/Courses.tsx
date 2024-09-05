@@ -4,6 +4,7 @@ import UMForm from "../../../components/Forms/UMForm";
 import UMSelect from "../../../components/Forms/UMSelect";
 import { useState } from "react";
 import { useGetAllFacultiesQuery } from "../../../redux/features/admin/userManagementApi";
+import { UserAddOutlined } from "@ant-design/icons";
 
 
 const Courses = () => {
@@ -97,7 +98,7 @@ const AddFacultyModal = ({ facultyInfo }:any) => {
     <>
     <Tooltip title="Add your teacher" color="purple">
 
-      <Button onClick={showModal}>Add Faculty</Button>
+      <Button onClick={showModal}>Add Faculty <UserAddOutlined color="green" /></Button>
     </Tooltip>
       <Modal
          width={500}
