@@ -144,7 +144,7 @@ const CreateStudent = () => {
     <Row>
       <h1 style={{ marginRight: "100px" }}>
         {" "}
-        <Link to="/admin/students-data"> ⬅️ Back to Student List </Link>
+        <Link to="/admin/students-data"> <p title="Back to">⬅️ Back to Student List</p> </Link>
       </h1>
 
       <Col span={24}>
@@ -153,12 +153,12 @@ const CreateStudent = () => {
           defaultValues={studentDefaultValues}
           resolver={zodResolver(studentSchema)}
         >
-          <Divider style={{ color: "green", fontSize: "20px" }}>
-            <ScheduleOutlined /> Personal Information
+          <Divider  style={{ color: "green", fontSize: "20px" }}>
+            <ScheduleOutlined  />  Personal Information
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-              <UMInput name="name.firstName" type="text" label="First Name" />
+              <UMInput name="name.firstName" type="text" label="First Name"  required={true}/>
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <UMInput name="name.middleName" type="text" label="Middle Name" />
@@ -205,7 +205,7 @@ const CreateStudent = () => {
           </Divider>
           <Row gutter={8}>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-              <UMInput type="text" name="email" label="Email" />
+              <UMInput type="text" name="email" label="Email"  required={true} tooltip="Email should be unique"/>
             </Col>
             <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
               <UMInput type="text" name="contactNo" label="Contact" />
