@@ -90,20 +90,6 @@ const courseManagementApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.courses],
     }),
-    // student: builder.query({
-    //   query: ({ studentId }) => ({
-    //     url: `/students/${studentId}`,
-    //     method: "GET",
-    //   }),
-    // }),
-
-    // deleteStudent: builder.mutation({
-    //   query: (id) => ({
-    //     url: `/students/${id}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: [tagTypes.student],
-    // }),
   }),
 });
 
