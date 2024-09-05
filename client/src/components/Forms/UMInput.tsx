@@ -7,16 +7,18 @@ type TInputProps ={
   name:string, 
   label?:string, 
   placeholder?:string,
+  disabled?:boolean,
+  tooltip?:string |undefined
 }
 
-const UMInput = ({ type, name, label,placeholder }:TInputProps) => {
+const UMInput = ({ type, name, label,placeholder ,disabled, tooltip}:TInputProps) => {
   return (
     <div style={{marginBottom:'12px'}}>
       <Controller
         name={name}
         render={({ field , fieldState:{error}}) => (
-          <Form.Item label={label} style={{fontWeight:"bolder"}}>
-          <Input style={{}} {...field} type={type} id={name} placeholder={placeholder} size="large" />
+          <Form.Item label={label} style={{fontWeight:"bolder"}} tooltip={tooltip}>
+          <Input style={{}} {...field} type={type} id={name} placeholder={placeholder} size="large" disabled={disabled} />
           {error && <small style={{ color: 'red' }}>{error.message}</small>}
           </Form.Item>
         )}

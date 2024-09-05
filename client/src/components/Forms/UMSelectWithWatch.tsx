@@ -1,4 +1,5 @@
 import { Form, Select } from "antd";
+import { useEffect } from "react";
 import { Controller, useFormContext, useWatch } from "react-hook-form";
 
 type TUMSelectProps = {
@@ -7,6 +8,8 @@ type TUMSelectProps = {
   options: { value: string; label: string; disabled?: boolean }[] | undefined;
   disabled?: boolean;
   mode?: "multiple" | undefined;
+  onValueChange: React.Dispatch<React.SetStateAction< undefined>>;
+//   onValueChange: React.Dispatch<React.SetStateAction< string>>;
 };
 
 const UMSelectWithWatch = ({
@@ -15,6 +18,7 @@ const UMSelectWithWatch = ({
   options,
   disabled,
   mode,
+  onValueChange,
 }: TUMSelectProps) => {
 
 
@@ -24,8 +28,9 @@ const UMSelectWithWatch = ({
         name
     })
     
-
-    console.log(inputValue);
+    useEffect(()=>{
+        onValueChange(inputValue)
+    },[inputValue,onValueChange])
     
 
   return (

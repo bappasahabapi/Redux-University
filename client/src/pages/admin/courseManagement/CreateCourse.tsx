@@ -17,7 +17,7 @@ const CreateCourse = () => {
   const { data: courseData } = useGetAllCoursesQuery(undefined);
   const [addCourse] = useAddCourseMutation(undefined);
 
-  const preRequisiteCoursesOptions = courseData?.data?.map((item) => ({
+  const preRequisiteCoursesOptions = courseData?.data?.map((item:any) => ({
     value: item._id,
     label: item.title,
   }));

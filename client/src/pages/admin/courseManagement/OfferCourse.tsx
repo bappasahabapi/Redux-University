@@ -3,10 +3,14 @@ import UMForm from "../../../components/Forms/UMForm";
 import UMInput from "../../../components/Forms/UMInput";
 import { useGetAllFacultyQuery } from "../../../redux/features/admin/academicFacultyApi";
 import UMSelectWithWatch from "../../../components/Forms/UMSelectWithWatch";
+import { useState } from "react";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 
 const OfferCourse = () => {
 
+  const [courseId, setCourseId]=useState();
   const { data: academicFacultyData } = useGetAllFacultyQuery(undefined);
+  console.log(courseId)
 
   const academicFacultyOptions = academicFacultyData?.data?.map((item) => ({
     value: item._id,
@@ -15,7 +19,7 @@ const OfferCourse = () => {
 
 
 
-const handleSubmit =(data)=>{
+const handleSubmit:SubmitHandler<FieldValues> =(data)=>{
   console.log(data)
 };
 
@@ -27,11 +31,12 @@ const handleSubmit =(data)=>{
         <h3>Create Offer Course</h3>
         <UMForm onSubmit={handleSubmit}>
           <UMSelectWithWatch
+          onValueChange={setCourseId}
           label="Academic Faculty"
           name="academicFaculty"
           options={academicFacultyOptions}
           />
-          <UMInput type="test" name="test" label="Test" />
+          <UMInput tooltip="initially disable if no id is selected" disabled={!courseId} type="test" name="test" label="Test" />
           <Button htmlType="submit">Submit</Button>
         </UMForm>
       </Col>
