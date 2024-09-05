@@ -29,6 +29,7 @@ react-hook-form
     - 6. `Course` handle multiple select options
     - 7. `Course` Create Course
     - 8. `Course` Handle Modal
+    - 9. `Course` add faculty modal
 
 - **Part-5:**
     - 1. Get Data Using Form Data Api

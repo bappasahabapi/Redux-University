@@ -69,6 +69,9 @@ const AdminDashboard = () => {
         <Card.Grid style={gridStyle1}>
           <Link to="/admin/courses">02-Courses</Link>
         </Card.Grid>
+        <Card.Grid style={gridStyle1}>
+          <Link to="/admin/courses">03-Offered Course</Link>
+        </Card.Grid>
       
        
       </Card>

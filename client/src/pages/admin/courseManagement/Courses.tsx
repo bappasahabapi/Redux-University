@@ -1,5 +1,5 @@
-import { Button, Modal, Table } from "antd";
-import { useGetAllCoursesQuery } from "../../../redux/features/admin/courseManagementApi"
+import { Button, Modal, Table, Tooltip } from "antd";
+import { useAddFacultiesMutation, useGetAllCoursesQuery } from "../../../redux/features/admin/courseManagementApi"
 import UMForm from "../../../components/Forms/UMForm";
 import UMSelect from "../../../components/Forms/UMSelect";
 import { useState } from "react";
@@ -10,10 +10,15 @@ const Courses = () => {
 
   const {data:courses,isFetching}=useGetAllCoursesQuery(undefined);
   // console.log(courses)
+  type  TCourse ={
+    _id: string;
+    title: string;
+    prefix: string;
+    code: string;
+  }
 
-
-  const tableData = courses?.data?.map(({ _id, title, prefix, code }) => ({
-    key: _id,
+  const tableData = courses?.data?.map(({ _id, title, prefix, code }:TCourse) => ({
+    key: _id ,
     title,
     code: `${code}`,
     prefix
@@ -38,7 +43,7 @@ const Courses = () => {
     {
       title: 'Action',
       key: 'x',
-      render: (item) => {
+      render: (item:any) => {
         return <AddFacultyModal facultyInfo={item} />;
       },
     },
@@ -59,28 +64,22 @@ const AddFacultyModal = ({ facultyInfo }:any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {data:facultiesData}=useGetAllFacultiesQuery(undefined);
-  // console.log(facultiesData)
-  
-  
+  const [addFaculties] = useAddFacultiesMutation();
 
-  // const [addFaculties] = useAddFacultiesMutation();
-
-  const facultiesOption = facultiesData?.data?.map((item) => ({
+  const facultiesOption = facultiesData?.data?.map((item:any) => ({
     value: item._id,
     label: item.fullName,
   }));
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (data:any) => {
 
-    console.log(data)
-    // const facultyData = {
-    //   courseId: facultyInfo.key,
-    //   data,
-    // };
+    const facultyData = {
+      courseId: facultyInfo.key,
+      data,
+    };
 
-    // console.log(facultyData);
-
-    // addFaculties(facultyData);
+    console.log(facultyData);
+    addFaculties(facultyData);
   };
 
   const showModal = () => {
@@ -96,12 +95,16 @@ const AddFacultyModal = ({ facultyInfo }:any) => {
 
   return (
     <>
+    <Tooltip title="Add your teacher" color="purple">
+
       <Button onClick={showModal}>Add Faculty</Button>
+    </Tooltip>
       <Modal
+         width={500}
         title="Basic Modal"
         open={isModalOpen}
         onCancel={handleCancel}
-        // footer={null}
+        footer={null}
         onOk={handleOk}
       >
         <UMForm onSubmit={handleSubmit}>
@@ -112,7 +115,7 @@ const AddFacultyModal = ({ facultyInfo }:any) => {
             name="faculties"
             label="Faculty Name"
           />
-          <Button style={{backgroundColor:"snow" ,color:"black", border:"2px solid green"}} htmlType="submit">Submit</Button>
+          <Button  style={{backgroundColor:"green" ,color:"white", border:"2px solid green"}} htmlType="submit">Submit</Button>
         </UMForm>
       </Modal>
     </>
