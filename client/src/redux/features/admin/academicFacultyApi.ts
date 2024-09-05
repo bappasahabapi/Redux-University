@@ -11,7 +11,6 @@ const academicFacultyApi = baseApi.injectEndpoints({
         method: "GET",
       }),
       transformResponse: (response: TResponseRedux<TAcademicFaculty[]>) => {
-        console.log(response)
         return {
           data: response.data,
           meta: response.meta,

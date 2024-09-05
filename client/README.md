@@ -31,6 +31,7 @@ react-hook-form
     - 8. `Course` Handle Modal
     - 9. `Course` add faculty modal
     - 10. `Offered Course` add faculty working with dependent selet with watch
+    - 11. `Offered Course` disable input based on another input
 
 - **Part-5:**
     - 1. Get Data Using Form Data Api
