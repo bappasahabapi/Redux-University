@@ -30,6 +30,7 @@ react-hook-form
     - 7. `Course` Create Course
     - 8. `Course` Handle Modal
     - 9. `Course` add faculty modal
+    - 10. `Offered Course` add faculty working with dependent selet with watch
 
 - **Part-5:**
     - 1. Get Data Using Form Data Api
