@@ -20,6 +20,9 @@ react-hook-form
 
 ### Steps:
 
+- **Part-7:**
+    - 1. Handle Offered Course dependent selected part
+
 - **Part-6:**
     - 1. Handle Semester Registration
     - 2. Semester Registration Table
