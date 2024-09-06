@@ -26,7 +26,7 @@ import OfferedCourse from '../pages/student/OfferedCourse';
     
   },
   {
-    name:'Academic Management ', 
+    name:'📚 Academic Management ', 
     children:[
       {
         name: '📗 Create A.S',
@@ -62,10 +62,10 @@ import OfferedCourse from '../pages/student/OfferedCourse';
   },
 
   {
-    name: 'User Management',
+    name: '👥 User Management',
     children: [
       {
-        name: 'Create Student',
+        name: '🧑‍🏫 Create Student',
         path: 'create-student',
         element: <CreateStudent />,
       },
@@ -102,35 +102,36 @@ import OfferedCourse from '../pages/student/OfferedCourse';
     ],
   },
   {
-    name: 'Course Management',
+    name: '👪 Course Management',
     children: [
       {
-        name: '1-Semester Registration',
+        name: '📓 1-Semester Registration',
         path: 'semester-registration',
         element: <SemesterRegistration />,
       },
       {
-        name: 'Registered Semesters',
+        name: 'Registered Semesters List',
         path: 'registered-semesters',
         element: <RegisteredSemesters />,
       },
+
       {
-        name: 'Create Course',
+        name: '🟢 2-Create Course 📘',
         path: 'create-course',
         element: <CreateCourse />,
       },
       {
-        name: 'Courses',
+        name: 'Courses List',
         path: 'courses',
         element: <Courses />,
       },
       {
-        name: 'Offer Course',
+        name: '🎁 3-Offer Course',
         path: 'offer-course',
         element: <OfferCourse />,
       },
       {
-        name: 'Offered Courses',
+        name: 'Offered Courses List',
         path: 'offered-courses',
         element: <OfferedCourse />,
       },

@@ -8,9 +8,10 @@ type TUMSelectProps = {
   options: { value: string; label: string; disabled?: boolean }[] | undefined;
   disabled?: boolean;
   mode?: "multiple" | undefined;
-  onValueChange: React.Dispatch<React.SetStateAction< undefined>>;
-//   onValueChange: React.Dispatch<React.SetStateAction< string>>;
+  onValueChange: React.Dispatch<React.SetStateAction<string>>;
 };
+
+
 
 const UMSelectWithWatch = ({
   label,
@@ -20,24 +21,21 @@ const UMSelectWithWatch = ({
   mode,
   onValueChange,
 }: TUMSelectProps) => {
+  const method = useFormContext();
+  const inputValue = useWatch({
+    control: method.control,
+    name,
+  });
 
-
-    const method =useFormContext();
-    const inputValue =useWatch({
-        control:method.control,
-        name
-    })
-    
-    useEffect(()=>{
-        onValueChange(inputValue)
-    },[inputValue,onValueChange])
-    
+  useEffect(() => {
+    onValueChange(inputValue);
+  }, [inputValue, onValueChange]);
 
   return (
     <Controller
       name={name}
       render={({ field, fieldState: { error } }) => (
-        <Form.Item label={label}>
+        <Form.Item label={label} style={{fontWeight:"bolder"}}>
           <Select
             mode={mode}
             style={{ width: "100%" }}
