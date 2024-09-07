@@ -5,7 +5,8 @@ import { Menu,Layout} from "antd";
 import { studentPaths } from "../../routes/studen.routes";
 import { facultyPaths } from "../../routes/facultyPaths";
 import { useAppSelector } from "../../redux/hooks";
-import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import {  TUser } from "../../redux/features/auth/authSlice";
+import { decodeToken } from "../../utils/verifyToken";
 
 const { Sider } = Layout;
 
@@ -18,15 +19,27 @@ const userRole = {
 
 const SideBar = () => {
 
-  const user =useAppSelector(selectCurrentUser);
+  const token =useAppSelector(store=>store.auth.token);
+  // const user =useAppSelector(selectCurrentUser);
   // console.log(user) 
 
   // const role ='admin'
     // let sidebarItems;
+    // const user =useAppSelector(useCurrentUser);
+
+
+    //todo set the user from the token not from the local storage
     let sidebarItems:any;
 
+    let user;
+    if(token){
+      user = decodeToken(token)
+    }
+    console.log(user)
+
     // switch (role) {
-    switch (user!.role) {
+    // switch (user!.role) {
+    switch ((user as TUser)!.role) {
         case userRole.ADMIN:
           sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
           break;
