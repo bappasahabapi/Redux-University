@@ -39,7 +39,8 @@ const Login = () => {
     const toastId = toast.loading("Logging in...", { position: "top-center" });
 
     try {
-      //       //todo:same format as backend accept
+
+        //todo:same format as backend accept
       const userInfo = {
         id: data?.userId,
         // id: data?.id,
@@ -47,9 +48,8 @@ const Login = () => {
       };
 
       const res = await login(userInfo).unwrap();
-      // console.log(res)
+      console.log(res)
       const user = decodeToken(res.data.accessToken) as TUser;
-      // // console.log(user)
 
       // //todo: After login
       // dispatch(setUser({user:{ user},token:res.data.accessToken}));
@@ -61,7 +61,15 @@ const Login = () => {
         position: "top-center",
         duration: 1500,
       });
-      navigate(`/${user?.role}/dashboard`);
+
+      if(res?.data?.needsPasswordChange){
+
+        navigate(`/change-password`);
+      }else{
+
+        navigate(`/${user?.role}/dashboard`);
+      }
+
     } catch (error) {
       toast.error("Something went wrong");
     }

@@ -44,6 +44,11 @@ const baseQuesyWithRefreshToken: BaseQueryFn<
     const errorData = result.error.data as ErrorResponse; // Type assertion
     toast.error(errorData.message);
   }
+  if(result?.error?.status===403){
+    // toast.error(result.error.data.message) 
+    const errorData = result.error.data as ErrorResponse; // Type assertion
+    toast.error(errorData.message,{description:"old password is: student123"});
+  }
 
   //!:create new refresh token handle unauthorized requests [Not Working]
   if (result?.error?.status === 401) {

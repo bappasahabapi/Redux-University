@@ -24,6 +24,7 @@ react-hook-form
     - 1. Handle Offered Course dependent selected part
     - 2. Handle Role Based Authentication
     - 3. Handle Patch Security Issue
+    - 4. Force password change for the first time
 - **Part-6:**
     - 1. Handle Semester Registration
     - 2. Semester Registration Table
