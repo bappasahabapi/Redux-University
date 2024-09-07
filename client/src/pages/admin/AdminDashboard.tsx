@@ -30,21 +30,13 @@ const flexItemStyle: React.CSSProperties = {
 const AdminDashboard = () => {
   return (
     <div>
-      <h1>This is Admin Dashboard component</h1> <br />
-      {/* <ul>
-        <li>First Create Semester</li>
-        <li>First Create Faculty</li>
-        <li>
-          <b>First Create Department</b>
-          <ol>- Need Faculty Id</ol>
-        </li>
-      </ul> */}
+      <h1>Admin Dashboard</h1> <br />
       <hr />
       <hr />
-      <div title="User Management" style={{ marginTop: "20px" }}>
+      <div title="User Management" style={{ marginTop: "20px" }} >
         <h1 style={{ textAlign: "center" }}>User Management</h1>
-        <div style={flexContainerStyle}>
-          <Link to="/admin/students-data" style={flexItemStyle}>
+        <div style={flexContainerStyle} >
+          <Link to="/admin/students-data" style={flexItemStyle} >
             01-Student List
           </Link>
         </div>
@@ -67,8 +59,8 @@ const AdminDashboard = () => {
 
       <div>
         <h1 style={{ textAlign: "center" }}>Course Management</h1>
-        <div style={flexContainerStyle}>
-          <Link to="/admin/registered-semesters" style={flexItemStyle}>
+        <div style={flexContainerStyle} >
+          <Link  to="/admin/registered-semesters" style={flexItemStyle}>
             01-Registered Semester
           </Link>
           <Link to="/admin/courses" style={flexItemStyle}>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useForm, Controller, SubmitHandler, FieldValues } from "react-hook-form";
+import { Controller, SubmitHandler, FieldValues } from "react-hook-form";
 import { Row, Col, Divider, Form, Input, Button, Steps } from "antd";
 import {
   useStudentQuery,
@@ -51,15 +51,17 @@ const StudentUpdate = () => {
     value: department._id,
   }));
 
-  const methods = useForm({
-    defaultValues: studentData?.data || {},
-  });
+  // const methods = useForm({
+  //   defaultValues: studentData?.data || {},
+  // });
 
-  const { handleSubmit, reset, control } = methods;
+  // const { handeSubmit, reset, control } = methods;
+  // const { handeSubmit, reset, control } = methods;
   
   const [currentStep, setCurrentStep] = useState(0);
 
-  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+  const handleSubmit: SubmitHandler<FieldValues> = async (data) => {
+  // const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const toastId = toast.success("Updating student data...", { duration: 1500 });
 
     const updatedStudentData = {
@@ -79,7 +81,7 @@ const StudentUpdate = () => {
         richColors: true,
         position: "top-center",
       });
-      reset(data);
+      // reset(data);
       setTimeout(() => {
         navigate("/admin/students-data");
       }, 2000);
@@ -133,7 +135,7 @@ const StudentUpdate = () => {
           <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
             <Controller
               name="image"
-              control={control}
+              // control={control}
               render={({ field: { onChange, value, ...field } }) => (
                 <Form.Item label="📷 Upload Picture">
                   <Input
@@ -316,7 +318,7 @@ const StudentUpdate = () => {
         <Link to="/admin/students-data">⬅️ Back to Student List</Link>
       </h1>
       <Col span={24}>
-        <UMForm onSubmit={handleSubmit(onSubmit)} defaultValues={studentData?.data}>
+        <UMForm onSubmit={handleSubmit} defaultValues={studentData?.data}>
           <Steps current={currentStep}>
             {steps.map((step, index) => (
               <Step key={index} title={step.title} icon={step.icon} />
@@ -353,4 +355,6 @@ const StudentUpdate = () => {
 };
 
 export default StudentUpdate;
+
+
 

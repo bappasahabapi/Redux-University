@@ -1,48 +1,34 @@
-import React, { useState } from 'react';
-import type { CarouselProps, RadioChangeEvent } from 'antd';
-import { Carousel, Radio } from 'antd';
+import React from 'react';
+import { Carousel } from 'antd';
+import AdminImage from  '../../public/Admin-1.jpg'
+import StuImage from  '../../public/stu.png'
+import StuImage1 from  '../../public/std-1.png'
 
-type DotPosition = CarouselProps['dotPosition'];
 
 const contentStyle: React.CSSProperties = {
-  height: '160px',
+  height: '500px',
+  width: '100%',
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
   background: '#364d79',
 };
 
-const CustomCarousel = () => {
-  const [dotPosition, setDotPosition] = useState<DotPosition>('top');
+const CarouselAuto= () => (
+  <Carousel autoplay>
+    <div>
+      <img style={contentStyle} src={AdminImage} alt="bappa" />
+    </div>
+    <div>
+      <img style={contentStyle} src={StuImage} alt="bappa" />
+    </div>
+    <div>
+    <img style={contentStyle} src={StuImage1} alt="bappa" />
+    </div>
+    <div>
+      <h3 style={contentStyle}>4</h3>
+    </div>
+  </Carousel>
+);
 
-  const handlePositionChange = ({ target: { value } }: RadioChangeEvent) => {
-    setDotPosition(value);
-  };
-
-  return (
-    <>
-      <Radio.Group onChange={handlePositionChange} value={dotPosition} style={{ marginBottom: 8 }}>
-        <Radio.Button value="top">Top</Radio.Button>
-        <Radio.Button value="bottom">Bottom</Radio.Button>
-        <Radio.Button value="left">Left</Radio.Button>
-        <Radio.Button value="right">Right</Radio.Button>
-      </Radio.Group>
-      <Carousel dotPosition={dotPosition}>
-        <div>
-          <h3 style={contentStyle}>1</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>2</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>3</h3>
-        </div>
-        <div>
-          <h3 style={contentStyle}>4</h3>
-        </div>
-      </Carousel>
-    </>
-  );
-};
-
-export default CustomCarousel;
+export default CarouselAuto;

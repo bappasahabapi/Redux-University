@@ -3,3 +3,14 @@
   padding: 0;
   margin: 0;
 }
+
+.custom-login-button {
+  width: 100%;
+  background-color: green;
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.custom-login-button:hover {
+  background-color: rgb(18, 169, 234); /* Change to a darker green on hover */
+}
+

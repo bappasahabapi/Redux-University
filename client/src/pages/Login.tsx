@@ -1,4 +1,4 @@
-import { Button, Col, Image, Row } from "antd";
+import { Button, Col, Row } from "antd";
 import { FieldValues } from "react-hook-form";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useAppDispatch } from "../redux/hooks";
@@ -7,8 +7,9 @@ import { decodeToken } from "../utils/verifyToken";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import UMForm from "../components/Forms/UMForm";
-import FormInput from "../components/Forms/UMInput";
-import LoginImage from '../../public/login.png'
+import FormInput from "../components/Forms/UMInput"
+import { useState } from "react"
+import CarouselAuto from "../components/Carosal";
 
 const Login = () => {
   const dispatch = useAppDispatch();
@@ -20,10 +21,15 @@ const Login = () => {
   //   },
   // });
 
-  const defaultValues = {
+  const [defaultValues, setDefaultValues] = useState({
     userId: "A-0001",
     password: "admin123",
-  };
+  });
+
+  // const defaultValues = {
+  //   userId: "A-0001",
+  //   password: "admin123",
+  // };
 
   const [login] = useLoginMutation();
   // console.log("data=>",data);
@@ -70,20 +76,52 @@ const Login = () => {
           minHeight: "100vh",
         }}
       >
-        <Col sm={12} md={18} lg={8}>
-          <Image src={LoginImage}/>
+        <Col sm={12} md={18} lg={10}>
+          {/* <Image src={LoginImage}/> */}
+          <CarouselAuto/>
         </Col>
 
         <Col sm={12} md={8} lg={8} style={{marginLeft:"30px"}}>
-          <h1 style={{ margin: "18px " }}>First login your account</h1>
+          <h1 style={{ }}>First login your account</h1>
           <div>
-            <UMForm onSubmit={onSubmitLogin} defaultValues={defaultValues}>
+            <UMForm onSubmit={onSubmitLogin} defaultValues={defaultValues} key={JSON.stringify(defaultValues)}>
               <FormInput type="text" name="userId" label="ID: " />
               <FormInput type="text" name="password" label="Password: " />
-              <Button htmlType="submit" type="primary">
+              <Button  className="custom-login-button" htmlType="submit" type="primary" >
                 Login
               </Button>
             </UMForm>
+            <div style={{ marginTop: "20px" }}>
+              <Button
+                type="default"
+                onClick={() => setDefaultValues({
+                  userId: "A-0001",
+                  password: "admin123",
+                })}
+                style={{ marginRight: "10px" }}
+              >
+                Admin Login
+              </Button>
+              <Button
+                type="default"
+                onClick={() => setDefaultValues({
+                  userId: "2026030002",
+                  password: "student123",
+                })}
+                style={{ marginRight: "10px" }}
+              >
+                Student Login
+              </Button>
+              <Button
+                type="default"
+                onClick={() => setDefaultValues({
+                  userId: "F-0005",
+                  password: "faculty123",
+                })}
+              >
+                Faculty Login
+              </Button>
+            </div>
           </div>
         </Col>
       </Row>
