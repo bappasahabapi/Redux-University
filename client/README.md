@@ -22,6 +22,7 @@ react-hook-form
 
 - **Part-7:**
     - 1. Handle Offered Course dependent selected part
+    - 2. Handle Role Based Authentication
 
 - **Part-6:**
     - 1. Handle Semester Registration

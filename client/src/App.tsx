@@ -4,7 +4,7 @@ import ProtectedRoute from "./components/layout/ProtectedRoute";
 function App() {
   // return <MainLayout />;
   return (
-    <ProtectedRoute>
+    <ProtectedRoute role={undefined}>
       <MainLayout />
     </ProtectedRoute>
   );
