@@ -8,6 +8,7 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 import { HomeOutlined, ScheduleOutlined } from "@ant-design/icons";
 import UMSelect from "../../../components/Forms/UMSelect";
 import {
+  useCreateOfferedCourseMutation,
   useGetAllCoursesQuery,
   useGetAllRegisteredSemestersQuery,
   useGetCourseFacultiesQuery,
@@ -15,6 +16,7 @@ import {
 import { useGetAllDepartmentQuery } from "../../../redux/features/admin/academicDepartmentApi";
 import { weekDaysOptions } from "../../../constants/global";
 import UMTimePicker from "../../../components/Forms/UMTimePicker";
+import moment from "moment";
 
 const OfferCourse = () => {
   const [courseId, setCourseId] = useState("");
@@ -28,6 +30,9 @@ const OfferCourse = () => {
   const { data: coursesData } = useGetAllCoursesQuery(undefined);
   const { data: facultiesData, isFetching: fetchingFaculties } =
     useGetCourseFacultiesQuery(courseId, { skip: !courseId });
+
+  const [addOfferedCourse] = useCreateOfferedCourseMutation();
+
 
   //* Make the select options
   const academicFacultyOptions = academicFacultyData?.data?.map((item) => ({
@@ -59,9 +64,24 @@ const OfferCourse = () => {
     label: item.fullName,
   }));
 
-  const handleSubmit: SubmitHandler<FieldValues> = (data) => {
+
+
+  //todo: add offered course handler
+  const handleSubmit: SubmitHandler<FieldValues> = async(data) => {
     console.log(data);
+
+    const offeredCourseData = {
+      ...data,
+      maxCapacity: Number(data.maxCapacity),
+      section: Number(data.section),
+      startTime: moment(new Date(data.startTime)).format('HH:mm'),
+      endTime: moment(new Date(data.endTime)).format('HH:mm'),
+    };
+
+    const res = await addOfferedCourse(offeredCourseData);
+    console.log(res);
   };
+  
 
 
   const showModal = () => {
@@ -144,10 +164,10 @@ const OfferCourse = () => {
                 <ScheduleOutlined /> Non Academic Information
               </Divider>
               <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                <UMInput type="text" name="section" label="Section" />
+                <UMInput type="text" name="section" label="Section" placeholder="7" />
               </Col>
               <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
-                <UMInput type="text" name="maxCapacity" label="Max Capacity" />
+                <UMInput type="text" name="maxCapacity" label="Max Capacity" placeholder="30" />
               </Col>
               <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
                 <UMSelect

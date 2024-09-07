@@ -5,6 +5,7 @@ export enum tagTypes {
     student = "student",
     semester ="semester",
     courses="courses",
+    offeredCourse="offeredCourse"
 
 }
 
