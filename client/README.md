@@ -26,6 +26,9 @@ react-hook-form
     - 3. Handle Patch Security Issue
     - 4. Force password change for the first time
     - 5. Handle Student Offered Course part (fix the data fetching)
+    - 6. Offered Course data modifications
+    - 7. Offered Course data showing
+    - 8. Handle Enroll Course for student.
 - **Part-6:**
     - 1. Handle Semester Registration
     - 2. Semester Registration Table

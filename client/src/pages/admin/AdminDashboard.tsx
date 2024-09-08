@@ -36,7 +36,7 @@ const AdminDashboard = () => {
       <div title="User Management" style={{ marginTop: "20px" }} >
         <h1 style={{ textAlign: "center" }}>User Management</h1>
         <div style={flexContainerStyle} >
-          <Link to="/admin/students-data" style={flexItemStyle} >
+          <Link to="/admin/students-data" style={flexItemStyle} className="flexContainerStyle">
             01-Student List
           </Link>
         </div>
@@ -66,8 +66,8 @@ const AdminDashboard = () => {
           <Link to="/admin/courses" style={flexItemStyle}>
             02-Courses
           </Link>
-          <Link to="/admin/courses" style={flexItemStyle}>
-            03-Offered Course
+          <Link to="/admin/offered-courses" style={flexItemStyle}>
+            03-Offered Course 
           </Link>
         </div>
       </div>

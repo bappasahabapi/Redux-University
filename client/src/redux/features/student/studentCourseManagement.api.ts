@@ -53,19 +53,19 @@ const studentCourseApi = baseApi.injectEndpoints({
     //     };
     //   },
     // }),
-    // enrolCourse: builder.mutation({
-    //   query: (data) => ({
-    //     url: '/enrolled-courses/create-enrolled-course',
-    //     method: 'POST',
-    //     body: data,
-    //   }),
-    //   invalidatesTags: ['offeredCourse'],
-    // }),
+    enrolCourse: builder.mutation({
+      query: (data) => ({
+        url: '/enrolled-courses/create-enrolled-course',
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: [tagTypes.offeredCourse],
+    }),
   }),
 });
 
 export const {
   useGetAllOfferedCoursesQuery,
-  // useEnrolCourseMutation,
+  useEnrolCourseMutation,
   // useGetAllEnrolledCoursesQuery,
 } = studentCourseApi;
