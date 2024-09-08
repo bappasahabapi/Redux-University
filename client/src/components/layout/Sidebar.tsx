@@ -3,7 +3,7 @@ import { adminPaths } from "../../routes/admin.routes";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { Menu,Layout} from "antd";
 import { studentPaths } from "../../routes/studen.routes";
-import { facultyPaths } from "../../routes/facultyPaths";
+import { facultyPaths } from "../../routes/faculty.route";
 import { useAppSelector } from "../../redux/hooks";
 import {  TUser } from "../../redux/features/auth/authSlice";
 import { decodeToken } from "../../utils/verifyToken";

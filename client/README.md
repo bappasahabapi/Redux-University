@@ -28,7 +28,11 @@ react-hook-form
     - 5. Handle Student Offered Course part (fix the data fetching)
     - 6. Offered Course data modifications
     - 7. Offered Course data showing
-    - 8. Handle Enroll Course for student.
+    - 8. Handle student schedule.
+    - 9. `Faculty` course
+    - 10. `Faculty` course
+    - 11. `Faculty` course filtering
+    - 11. `Faculty` Filter student based on semester and course
 - **Part-6:**
     - 1. Handle Semester Registration
     - 2. Semester Registration Table

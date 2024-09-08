@@ -5,7 +5,7 @@ import Register from "../pages/Register";
 import { routeGenerator } from "../utils/routeGenerator";
 import { adminPaths } from "./admin.routes";
 import { studentPaths } from "./studen.routes";
-import { facultyPaths } from "./facultyPaths";
+import { facultyPaths } from "./faculty.route";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import ChangePassword from "../pages/ChangePassword";
 // import ProtectedRoute from "../components/layout/ProtectedRoute";

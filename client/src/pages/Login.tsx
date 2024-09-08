@@ -118,16 +118,26 @@ const Login = () => {
                 })}
                 style={{ marginRight: "10px" }}
               >
-                Student Login
+                Student-3 Login
               </Button>
               <Button
                 type="default"
                 onClick={() => setDefaultValues({
-                  userId: "F-0005",
+                  userId: "2024030004",
+                  password: "student123",
+                })}
+                style={{ marginRight: "10px" }}
+              >
+                Student-4 Login 
+              </Button>
+              <Button
+                type="default"
+                onClick={() => setDefaultValues({
+                  userId: "F-0002",
                   password: "faculty123",
                 })}
               >
-                Faculty Login
+                Faculty-2 Login
               </Button>
             </div>
           </div>
