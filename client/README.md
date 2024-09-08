@@ -32,7 +32,8 @@ react-hook-form
     - 9. `Faculty` course
     - 10. `Faculty` course
     - 11. `Faculty` course filtering
-    - 11. `Faculty` Filter student based on semester and course
+    - 12. `Faculty` Filter student based on semester and course
+    - 13. `final tourch
 - **Part-6:**
     - 1. Handle Semester Registration
     - 2. Semester Registration Table
