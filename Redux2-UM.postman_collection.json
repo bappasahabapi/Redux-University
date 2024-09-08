@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":\"A-0001\",\r\n    \"password\":\"admin123\" \r\n}",
+							"raw": "{\r\n    \"id\":\"A-0001\",\r\n    \"password\":\"admin123\" \r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -52,7 +52,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":\"2025010001\",\r\n    \"password\":\"student123\" \r\n}",
+							"raw": "{\r\n    \"id\":\"2024030003\",\r\n    \"password\":\"student123\" \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -70,7 +70,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":\"F-0001\",\r\n    \"password\":\"faculty123\" \r\n}",
+							"raw": "{\r\n    \"id\":\"F-0002\",\r\n    \"password\":\"faculty123\" \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,13 +88,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBLTAwMDEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDI3NDk4NTMsImV4cCI6MTcwMzYxMzg1M30.7-9ewLUARmD4YiZJ3lPXuWa9ZLJvp7L0VlgtGUlijuI",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"oldPassword\": \"admin123\",\r\n    \"newPassword\": \"admin1234\"\r\n}",
+							"raw": "// {\r\n//     \"oldPassword\": \"admin123\",\r\n//     \"newPassword\": \"admin1234\"\r\n// }\r\n\r\n{\r\n    \"oldPassword\": \"student123\",\r\n    \"newPassword\": \"student1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -225,13 +225,20 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"password\": \"student123\",\n    \"student\": {\n        \"name\": {\n            \"firstName\": \"I am \",\n            \"middleName\": \"Student\",\n            \"lastName\": \"Number 1\"\n        },\n        \"gender\": \"male\",\n        \"dateOfBirth\": \"1990-01-01\",\n        \"email\": \"student1@gmail.com\",\n        \"contactNo\": \"1235678\",\n        \"emergencyContactNo\": \"987-654-3210\",\n        \"bloogGroup\": \"A+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\",\n        \"guardian\": {\n            \"fatherName\": \"James Doe\",\n            \"fatherOccupation\": \"Engineer\",\n            \"fatherContactNo\": \"111-222-3333\",\n            \"motherName\": \"Mary Doe\",\n            \"motherOccupation\": \"Teacher\",\n            \"motherContactNo\": \"444-555-6666\"\n        },\n        \"localGuardian\": {\n            \"name\": \"Alice Johnson\",\n            \"occupation\": \"Doctor\",\n            \"contactNo\": \"777-888-9999\",\n            \"address\": \"789 Pine St, Villageton\"\n        },\n        \"admissionSemester\": \"65b0104110b74fcbd7a25d92\",\n        \"academicDepartment\": \"65b00fb010b74fcbd7a25d8e\"\n    }\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "{\n    \"password\": \"student123\",\n    \"student\": {\n        \"name\": {\n            \"firstName\": \"I am \",\n            \"middleName\": \"Student\",\n            \"lastName\": \"Number 1\"\n        },\n        \"gender\": \"male\",\n        \"dateOfBirth\": \"1990-01-01\",\n        \"email\": \"student1@gmail.com\",\n        \"contactNo\": \"1235678\",\n        \"emergencyContactNo\": \"987-654-3210\",\n        \"bloogGroup\": \"A+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\",\n        \"guardian\": {\n            \"fatherName\": \"James Doe\",\n            \"fatherOccupation\": \"Engineer\",\n            \"fatherContactNo\": \"111-222-3333\",\n            \"motherName\": \"Mary Doe\",\n            \"motherOccupation\": \"Teacher\",\n            \"motherContactNo\": \"444-555-6666\"\n        },\n        \"localGuardian\": {\n            \"name\": \"Alice Johnson\",\n            \"occupation\": \"Doctor\",\n            \"contactNo\": \"777-888-9999\",\n            \"address\": \"789 Pine St, Villageton\"\n        },\n        \"admissionSemester\": \"65b0104110b74fcbd7a25d92\",\n        \"academicDepartment\": \"65b00fb010b74fcbd7a25d8e\"\n    }\n}\n",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": [],
+									"disabled": true
 								}
-							}
+							]
 						},
 						"url": "http://localhost:5000/api/v1/users/create-student/"
 					},
@@ -308,6 +315,12 @@
 							{
 								"key": "Authorization",
 								"value": "{{superADminToken}}",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -321,7 +334,7 @@
 								},
 								{
 									"key": "data",
-									"value": "{\n    \"password\": \"faculty123\",\n    \"faculty\": {\n        \"designation\":\"Lecturer\",\n        \"name\": {\n            \"firstName\": \"Mridul \",\n            \"middleName\": \"Das\",\n            \"lastName\": \"Rahman\"\n        },\n        \"gender\":\"male\",\n        \"email\":\"faculty3@gmail.com\",\n        \"dateOfBirth\": \"1990-01-01\",\n        \"contactNo\": \"123\",\n        \"emergencyContactNo\": \"123\",\n        \"bloogGroup\": \"A+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\",\n        \"academicDepartment\":\"65b00fb010b74fcbd7a25d8e\"\n    }\n}",
+									"value": "{\n    \"password\": \"faculty123\",\n    \"faculty\": {\n        \"designation\":\"Lecturer\",\n        \"name\": {\n            \"firstName\": \"Jack- \",\n            \"middleName\": \" \",\n            \"lastName\": \"Vai\"\n        },\n        \"gender\":\"male\",\n        \"email\":\"jack@gmail.com\",\n        \"dateOfBirth\": \"1990-01-01\",\n        \"contactNo\": \"123\",\n        \"emergencyContactNo\": \"123\",\n        \"bloogGroup\": \"A+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\",\n        \"academicDepartment\":\"66d82a25bfb0c7170fb477e9\"\n    }\n}",
 									"type": "text"
 								}
 							]
@@ -342,20 +355,13 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": "/Users/saminravi99/Downloads/414402027_1367032297316085_3242041099875548910_n.png",
-									"disabled": true
-								},
-								{
-									"key": "data",
-									"value": "{\n    \"password\": \"admin123\",\n    \"admin\": {\n        \"designation\": \"Admin\",\n        \"name\": {\n            \"firstName\": \"Mr. Mezbaul\",\n            \"middleName\": \"Abedin\",\n            \"lastName\": \"Forhan\"\n        },\n        \"gender\": \"male\",\n        \"dateOfBirth\": \"1998-04-24\",\n        \"email\": \"mezbaul2@programming-hero.com\",\n        \"contactNo\": \"12356789\",\n        \"emergencyContactNo\": \"12356789\",\n        \"bloogGroup\": \"O+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\"\n    }\n}",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"admin123\",\n    \"admin\": {\n        \"designation\": \"Admin\",\n        \"name\": {\n            \"firstName\": \"Mr. Mezbaul\",\n            \"middleName\": \"Abedin\",\n            \"lastName\": \"Forhan\"\n        },\n        \"gender\": \"male\",\n        \"dateOfBirth\": \"1998-04-24\",\n        \"email\": \"mezbaul2@programming-hero.com\",\n        \"contactNo\": \"12356789\",\n        \"emergencyContactNo\": \"12356789\",\n        \"bloogGroup\": \"O+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": "{{ph-local-url}}/users/create-admin"
 					},
@@ -399,6 +405,31 @@
 						"url": "{{ph-local-url}}/users/change-status/658056522d7914bff94e67cf"
 					},
 					"response": []
+				},
+				{
+					"name": "http://localhost:5000/api/v1/users/create-student/",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{superADminToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "{\n    \"password\": \"student123\",\n    \"student\": {\n        \"name\": {\n            \"firstName\": \"I am \",\n            \"middleName\": \"Student\",\n            \"lastName\": \"Number 1\"\n        },\n        \"gender\": \"male\",\n        \"dateOfBirth\": \"1990-01-01\",\n        \"email\": \"student2@gmail.com\",\n        \"contactNo\": \"1235678\",\n        \"emergencyContactNo\": \"987-654-3210\",\n        \"bloogGroup\": \"A+\",\n        \"presentAddress\": \"123 Main St, Cityville\",\n        \"permanentAddress\": \"456 Oak St, Townsville\",\n        \"guardian\": {\n            \"fatherName\": \"James Doe\",\n            \"fatherOccupation\": \"Engineer\",\n            \"fatherContactNo\": \"111-222-3333\",\n            \"motherName\": \"Mary Doe\",\n            \"motherOccupation\": \"Teacher\",\n            \"motherContactNo\": \"444-555-6666\"\n        },\n        \"localGuardian\": {\n            \"name\": \"Alice Johnson\",\n            \"occupation\": \"Doctor\",\n            \"contactNo\": \"777-888-9999\",\n            \"address\": \"789 Pine St, Villageton\"\n        },\n        \"admissionSemester\": \"65b0104110b74fcbd7a25d92\",\n        \"academicDepartment\": \"65b00fb010b74fcbd7a25d8e\"\n    }\n}\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:5000/api/v1/users/create-student/"
+					},
+					"response": []
 				}
 			]
 		},
@@ -415,15 +446,43 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
+							},
+							{
+								"key": "limit",
+								"value": "4",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "http://localhost:5000/api/v1/students"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/students?limit=10&sort=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"students"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "asc"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -434,11 +493,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{superADminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5000/api/v1/students/65b016db47c500c09d0bed2f"
+						"url": "http://localhost:5000/api/v1/students/66ceedaf9204702acfcc1b58"
 					},
 					"response": []
 				},
@@ -446,8 +505,14 @@
 					"name": "Delete Student",
 					"request": {
 						"method": "DELETE",
-						"header": [],
-						"url": "http://localhost:5000/api/v1/students/2030010001"
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:5000/api/v1/students/66d2e876918c3526bfaeea26"
 					},
 					"response": []
 				},
@@ -455,17 +520,23 @@
 					"name": "Update Student",
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"student\": {\r\n        \"contactNo\":\"0000\",\r\n        \"name\": {\r\n            \"lastName\": \"Persian\"\r\n        },\r\n    \"guardian\": {\r\n        \"fatherOccupation\":\"Engineeer\"\r\n    }\r\n    }\r\n}",
+							"raw": "{\r\n    \"student\": {\r\n        \"contactNo\":\"0000\",\r\n        \"name\": {\r\n            \"lastName\": \"UpdateNameStudent\"\r\n        },\r\n    \"guardian\": {\r\n        \"fatherOccupation\":\"Doctor\"\r\n    }\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/students/2030010001"
+						"url": "{{ph-local-url}}/students/66ceedaf9204702acfcc1b58"
 					},
 					"response": []
 				},
@@ -493,7 +564,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -529,8 +600,14 @@
 					"name": "Get Single Faculty",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": "http://localhost:5000/api/v1/faculties/656dce0f133c4a8a53eb"
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:5000/api/v1/faculties/66d8d3123f6e9e61bbf94360"
 					},
 					"response": []
 				},
@@ -678,7 +755,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -705,8 +782,14 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -718,7 +801,41 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/api/v1/academic-semesters"
+						"url": {
+							"raw": "http://localhost:5000/api/v1/academic-semesters",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"academic-semesters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Summer",
+									"disabled": true
+								},
+								{
+									"key": "startMonth",
+									"value": "January",
+									"disabled": true
+								},
+								{
+									"key": "endMonth",
+									"value": "August",
+									"disabled": true
+								},
+								{
+									"key": "code",
+									"value": "01",
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -729,11 +846,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
-						"url": "http://localhost:5000/api/v1/academic-semesters/65646ac154dfafc1a9ce2806jjjjj"
+						"url": "http://localhost:5000/api/v1/academic-semesters/66beec4da7fa26aeeb62f7ff"
 					},
 					"response": []
 				}
@@ -749,13 +866,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Department of L1\",\r\n    \"academicFaculty\":\"65b00f3510b74fcbd7a25d86\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Department of CSE\",\r\n    \"academicFaculty\":\"66cc3e047695fd961c89978c\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -773,7 +890,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -788,11 +905,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
-						"url": "{{ph-local-url}}/academic-departments/gggg"
+						"url": "{{ph-local-url}}/academic-departments/66aa7a7a8d156c805f7a8921"
 					},
 					"response": []
 				},
@@ -803,20 +920,20 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"testing2223\"\r\n}",
+							"raw": "{\r\n    \"name\":\"EEE\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/academic-departments/65666886eb4042a08aba675a"
+						"url": "{{ph-local-url}}/academic-departments/66cdc3ba56eca97ec2664587"
 					},
 					"response": []
 				}
@@ -832,13 +949,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Faculty of Programming\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Faculty of Test\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -856,7 +973,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -871,11 +988,11 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
-						"url": "{{ph-local-url}}/academic-faculties/hhh"
+						"url": "{{ph-local-url}}/academic-faculties/66cc193bc7a5c5b601ca9e3b"
 					},
 					"response": []
 				},
@@ -883,17 +1000,23 @@
 					"name": "Update Academic Faculty",
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Faculty of Testing\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Science Faculty\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/academic-faculties/65665cbb41a6353fdc06fced"
+						"url": "{{ph-local-url}}/academic-faculties/66cc45957695fd961c8997c7"
 					},
 					"response": []
 				}
@@ -909,7 +1032,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -928,15 +1051,27 @@
 				},
 				{
 					"name": "Get All Courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{ph-local-url}}/courses",
 							"host": [
@@ -974,8 +1109,14 @@
 					"name": "Delete Course",
 					"request": {
 						"method": "DELETE",
-						"header": [],
-						"url": "{{ph-local-url}}/courses/656f138faac14eb8a7a73b79"
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
+								"type": "text"
+							}
+						],
+						"url": "{{ph-local-url}}/courses/66d8c1af3f6e9e61bbf942c3"
 					},
 					"response": []
 				},
@@ -1004,7 +1145,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -1017,7 +1158,7 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/courses/65b6001fd6ffdd9bfc058329/assign-faculties"
+						"url": "{{ph-local-url}}/courses/66d8bfb23f6e9e61bbf942a9/assign-faculties"
 					},
 					"response": []
 				},
@@ -1031,7 +1172,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -1044,7 +1185,7 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/courses/65b5fed5d6ffdd9bfc05831a/get-faculties"
+						"url": "{{ph-local-url}}/courses/66d8bfb23f6e9e61bbf942a9/get-faculties"
 					},
 					"response": []
 				},
@@ -1144,7 +1285,19 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{reduxAdminToken}}",
+								"type": "text"
+							},
+							{
+								"key": "status",
+								"value": "ongoing",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"academicSemester\": \"60a8c088c69a1a001c5d9a1a\",\r\n    \"status\": \"ONGOING\",\r\n    \"startDate\": \"2023-01-01T00:00:00Z\",\r\n    \"endDate\": \"2023-05-31T23:59:59Z\",\r\n    \"minCredit\": 6,\r\n    \"maxCredit\": 18\r\n}",
@@ -1154,7 +1307,22 @@
 								}
 							}
 						},
-						"url": "{{ph-local-url}}/semester-registrations"
+						"url": {
+							"raw": "{{ph-local-url}}/semester-registrations",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"semester-registrations"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ONGOING",
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -1191,7 +1359,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -1236,7 +1404,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{adminToken}}",
+								"value": "{{reduxAdminToken}}",
 								"type": "text"
 							}
 						],
@@ -1263,7 +1431,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{studentToken}}",
+								"value": "{{reduxStudentToken}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -1277,7 +1450,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/v1/offered-courses/my-offered-courses?page=1&limit=1",
+							"raw": "http://localhost:5000/api/v1/offered-courses/my-offered-courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1292,11 +1465,18 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "1",
+									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": "1"
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "ong",
+									"disabled": true
 								}
 							]
 						}
@@ -1324,13 +1504,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{studentToken}}",
+								"value": "{{reduxStudentToken}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n     \"offeredCourse\": \"65b66fd28cbfc00b54ba4f00\"\r\n}",
+							"raw": "{\r\n     \"offeredCourse\": \"66dc9c6f68d717611d01e120\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1351,7 +1531,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{studentToken}}",
+								"value": "{{reduxStudentToken}}",
 								"type": "text"
 							}
 						],
@@ -1365,6 +1545,59 @@
 							}
 						},
 						"url": "{{ph-local-url}}/enrolled-courses/my-enrolled-courses"
+					},
+					"response": []
+				},
+				{
+					"name": "faculty-courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJGLTAwMDIiLCJyb2xlIjoiZmFjdWx0eSIsImlhdCI6MTcyNTc5ODc5NSwiZXhwIjoxODAzNTU4Nzk1fQ.ZNRfomyiXM9vCMg8HH7CbZrhdJMOZBhY5wbCpnLsEfo",
+								"description": "\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJGLTAwMDIiLCJyb2xlIjoiZmFjdWx0eSIsImlhdCI6MTcyNTc5ODc5NSwiZXhwIjoxODAzNTU4Nzk1fQ.ZNRfomyiXM9vCMg8HH7CbZrhdJMOZBhY5wbCpnLsEfo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ph-local-url}}/enrolled-courses",
+							"host": [
+								"{{ph-local-url}}"
+							],
+							"path": [
+								"enrolled-courses"
+							],
+							"query": [
+								{
+									"key": "semesterRegistration",
+									"value": "66dcbb7a2e73a4f362cd2b49",
+									"disabled": true
+								},
+								{
+									"key": "course",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "student",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -1399,7 +1632,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:5000"
+				"url": "{{ph-local-url}}/enrolled-courses"
 			},
 			"response": []
 		}
@@ -1441,7 +1674,7 @@
 		},
 		{
 			"key": "studentToken",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyMDI1MDEwMDAxIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3MDY0NjgxNjksImV4cCI6MTcwNzMzMjE2OX0.WNaTTOx_YDmKggTwibZxSlrDnWX1Jbf2b_O9hSDzI30",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyMDI2MDMwMDAyIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3MjU3Mzk1OTksImV4cCI6MTgwMzQ5OTU5OX0.6NRHw4OINOH_soQglVNDhuqvyO7tnyO6EfIoi35yd7k",
 			"type": "string"
 		},
 		{
