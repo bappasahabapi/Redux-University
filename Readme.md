@@ -1,4 +1,4 @@
-# React + TypeScript + Vite +Redux+RTK
+# React + TypeScript + Vite +Redux+RTK +antd
 
 [client](http://localhost:5173/)
 npm install
@@ -98,3 +98,5 @@ react-hook-form
 
 - **Part-1-BasicUI:**
     - Role based routing
+
+
