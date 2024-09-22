@@ -32,16 +32,6 @@ const AdminDashboard = () => {
     <div>
       <h1>Admin Dashboard</h1> <br />
       <hr />
-      <hr />
-      <div title="User Management" style={{ marginTop: "20px" }} >
-        <h1 style={{ textAlign: "center" }}>User Management</h1>
-        <div style={flexContainerStyle} >
-          <Link to="/admin/students-data" style={flexItemStyle} className="flexContainerStyle">
-            01-Student List
-          </Link>
-        </div>
-      </div>
-
       <div style={{ marginTop: "20px" }}>
         <h1 style={{ textAlign: "center" }}>Academic Management</h1>
         <div style={flexContainerStyle}>
@@ -56,6 +46,16 @@ const AdminDashboard = () => {
           </Link>
         </div>
       </div>
+      <div title="User Management" style={{ marginTop: "20px" }} >
+        <h1 style={{ textAlign: "center" }}>User Management</h1>
+        <div style={flexContainerStyle} >
+          <Link to="/admin/students-data" style={flexItemStyle} className="flexContainerStyle">
+            01-Student List
+          </Link>
+        </div>
+      </div>
+
+      
 
       <div>
         <h1 style={{ textAlign: "center" }}>Course Management</h1>
