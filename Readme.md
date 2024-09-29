@@ -1,5 +1,9 @@
 # React + TypeScript + Vite +Redux+RTK +antd
 
+## [Live Watch ](https://www.youtube.com/watch?v=n9ivP7O3bqQ)
+
+![Assignment](./thumnail.jpg)
+
 [client](http://localhost:5173/)
 npm install
 npm run dev 
