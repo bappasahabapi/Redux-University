@@ -1,4 +1,6 @@
-# React + TypeScript + Vite +Redux+RTK +antd
+# Assignment Task to implement the frontend part.
+
+## [ React + TypeScript + Vite +Redux+RTK +antd ]
 
 ## [Live Watch ](https://www.youtube.com/watch?v=n9ivP7O3bqQ)
 
