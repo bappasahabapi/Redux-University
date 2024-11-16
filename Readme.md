@@ -4,7 +4,10 @@
 
 ## [Live Watch ](https://www.youtube.com/watch?v=n9ivP7O3bqQ)
 
-[![Video Thumbnail](https://img.youtube.com/vi/n9ivP7O3bqQ/0.jpg)](https://www.youtube.com/watch?v=n9ivP7O3bqQ&t=146s)
+<a href="https://www.youtube.com/watch?v=n9ivP7O3bqQ&t=146s" target="_blank">
+  <img src="https://img.youtube.com/vi/n9ivP7O3bqQ/0.jpg" alt="Video Thumbnail" width="1000" height="800" />
+</a>
+
 
 ![Assignment](./thumnail.jpg)
 
