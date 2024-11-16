@@ -4,6 +4,8 @@
 
 ## [Live Watch ](https://www.youtube.com/watch?v=n9ivP7O3bqQ)
 
+[![Video Thumbnail](https://img.youtube.com/vi/n9ivP7O3bqQ/0.jpg)](https://www.youtube.com/watch?v=n9ivP7O3bqQ&t=146s)
+
 ![Assignment](./thumnail.jpg)
 
 [client](http://localhost:5173/)
