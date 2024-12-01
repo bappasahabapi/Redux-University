@@ -2,9 +2,10 @@
 
 ## [ React + TypeScript + Vite +Redux+RTK +antd ]
 
-## [Live Watch ](https://www.youtube.com/watch?v=n9ivP7O3bqQ)
+## [Live Watch ](https://youtu.be/FW3_1evyZXs?si=q8xsnUjzmw1qU_Km)
 
-<a href="https://www.youtube.com/watch?v=n9ivP7O3bqQ&t=146s" target="_blank">
+
+<a href="https://youtu.be/FW3_1evyZXs?si=q8xsnUjzmw1qU_Km" target="_blank">
   <img src="https://img.youtube.com/vi/n9ivP7O3bqQ/0.jpg" alt="Video Thumbnail" width="1000" height="800" />
 </a>
 
