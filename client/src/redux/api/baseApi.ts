@@ -20,7 +20,8 @@ interface ErrorResponse {
 
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api/v1/",
+  // baseUrl: "http://localhost:5000/api/v1/",
+  baseUrl: "http://localhost:5001/api/v1/",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;

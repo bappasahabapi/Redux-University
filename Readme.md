@@ -12,6 +12,12 @@
 
 ![Assignment](./thumnail.jpg)
 
+
+## If error comes
+
+- check `.env` in bakend port number:
+- check `baseApi.ts` in fronted port number is same 
+
 [client](http://localhost:5173/)
 npm install
 npm run dev 
