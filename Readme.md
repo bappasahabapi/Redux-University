@@ -2,15 +2,13 @@
 
 ## [ React + TypeScript + Vite +Redux+RTK +antd ]
 
-## [Live Watch ](https://youtu.be/FW3_1evyZXs?si=q8xsnUjzmw1qU_Km)
+## Live Watch
 
+<!-- BEGIN YOUTUBE-CARDS -->
+[![University Management Using React Redux RTK TypeScript Ant Design MongoDB Node.js Express.js](https://ytcards.demolab.com/?id=FW3_1evyZXs&title=University+Management+Using+React+Redux+RTK+TS+Ant+Design+Node+Express&lang=en&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=2&width=300&border_radius=5&duration=... "University Management")](
+https://www.youtube.com/watch?v=FW3_1evyZXs)
 
-<a href="https://youtu.be/FW3_1evyZXs?si=q8xsnUjzmw1qU_Km" target="_blank">
-  <img src="https://img.youtube.com/vi/n9ivP7O3bqQ/0.jpg" alt="Video Thumbnail" width="1000" height="800" />
-</a>
-
-
-![Assignment](./thumnail.jpg)
+<!-- END YOUTUBE-CARDS -->
 
 
 ## If error comes
